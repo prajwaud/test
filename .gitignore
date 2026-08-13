@@ -1,4 +1,10 @@
 .env
+
+# Fixtures and saved runs contain real calendar entries and real email content.
+# Confidential firm and deal information - never commit these.
+fixtures/*.json
+runs/
+
 *.pyc
 __pycache__/
 .venv/

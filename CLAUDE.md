@@ -35,6 +35,34 @@ Access Policy restricts the app to praj@waudcapital.com.
 Until then, all code here is written against the documented Graph contract and is
 **unverified**. Say so plainly when reporting status. Do not describe it as working.
 
+## Where the prompt lives
+
+`prompts/system.md`, not in Python. It has YAML frontmatter carrying model, max_tokens and
+temperature, and a markdown body. `src/prompt_loader.py` loads it; `{{tz_label}}` is
+substituted at runtime.
+
+If asked to change how the brief reads, edit that file - do not move prose into
+`synthesize.py`. The separation is the point: the prompt is the part that gets iterated on,
+and it should be reviewable as prose.
+
+Log every prompt change in `prompts/CHANGELOG.md` with the reason, not just the diff. Git
+holds the diff; the reason is what is irrecoverable later.
+
+## The iteration loop
+
+```bash
+make capture    # freeze live data to fixtures/
+make tune       # replay it through the current prompt
+make compare A=system B=variant
+```
+
+Always tune against a fixture, never against live Graph. With live data the inbox changes
+under you and you cannot attribute an output change to your edit.
+
+There is deliberately no automated eval or LLM judge. Prithvi is the evaluator. Do not add
+a scoring harness unless he asks - a judge would optimize toward its own notion of a good
+executive summary rather than his.
+
 ## Working conventions
 
 - Communication: lead with the answer, rationale after. Tag factual claims [Certain],
