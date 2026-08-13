@@ -1,0 +1,46 @@
+name: Daily Brief
+
+# Two cron entries bracket the DST boundary. 09:00 UTC is 05:00 ET during EDT, 10:00 UTC is
+# 05:00 ET during EST. The --enforce-hour guard means only the matching one actually sends,
+# so this delivers at 5am ET year-round without a double send.
+on:
+  schedule:
+    - cron: "0 9 * * 1-5"
+    - cron: "0 10 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Read and print without sending"
+        type: boolean
+        default: true
+
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Send brief
+        env:
+          GRAPH_TENANT_ID: ${{ secrets.GRAPH_TENANT_ID }}
+          GRAPH_CLIENT_ID: ${{ secrets.GRAPH_CLIENT_ID }}
+          GRAPH_CLIENT_SECRET: ${{ secrets.GRAPH_CLIENT_SECRET }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          BRIEF_MAILBOX: ${{ vars.BRIEF_MAILBOX }}
+          BRIEF_DISPLAY_TIMEZONE: ${{ vars.BRIEF_DISPLAY_TIMEZONE }}
+          BRIEF_TIMEZONE_LABEL: ${{ vars.BRIEF_TIMEZONE_LABEL }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python -m src.daily_brief --dry-run
+          else
+            python -m src.daily_brief --enforce-hour
+          fi
