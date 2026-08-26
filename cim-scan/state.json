@@ -1,0 +1,9 @@
+{
+  "_meta": {
+    "purpose": "Durable state between scans and digests. scanned[] is the dedupe ledger for discovery (doc_ids already processed); digests[] is the send history. Commit and push after every run.",
+    "created": "2026-08-26"
+  },
+  "last_digest_at": null,
+  "scanned": [],
+  "digests": []
+}

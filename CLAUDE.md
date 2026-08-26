@@ -2,8 +2,15 @@
 
 ## What this is
 
-The Prithvi WCP Operating System. First and currently only component: an automated Daily
-Executive Brief emailed to praj@waudcapital.com at 5:00am ET on weekdays.
+The Prithvi WCP Operating System. Two components:
+
+1. **Daily Executive Brief** - emailed to praj@waudcapital.com at 5:00am ET on weekdays.
+   Lives in `src/`, `prompts/`, `docs/`. Blocked on the Entra app registration.
+2. **AI-in-CIMs scan and weekly digest** - scans CIMs ingested into the Knowledge Vault,
+   classifies how sellers substantiate AI claims, and drafts a Friday digest with
+   portco-specific implications. Lives in `cim-scan/`; start at `cim-scan/README.md`
+   and `cim-scan/SPEC.md`. Retrieval is via the Knowledge Vault Documents MCP server
+   (a Claude-session concern, not Python). Blocked on the KV ingestion lag (owner: Sai).
 
 Prithvi Raj is Chief Data and AI Officer at Waud Capital Partners, a Chicago-based
 middle-market PE firm. Outputs may reach Managing Partners, IC members, portco CEOs and LPs,

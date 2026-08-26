@@ -1,0 +1,259 @@
+{
+  "_meta": {
+    "purpose": "Explicit alias map for the 17 WCP portcos. Built because Knowledge Vault entity resolution is fragmented (spec 5, defect 3). Never filter search_evidence by a single company_id for a portco - use the union of entity_ids here. Never rely on resolve() at runtime for portco matching.",
+    "built": "2026-08-26",
+    "method": "One live resolve() call per portco against the KV Documents MCP server, candidates reviewed by hand. Doc counts are as of build date.",
+    "refresh": "Quarterly, or when a portco renames or closes a major add-on. Re-run resolve() per portco and diff.",
+    "warnings": [
+      "PracticeTek was f/k/a IPS (Integrated Practice Solutions). 'IPS Group, Inc.' (company_entity_ea789e59ecf9e50e4255fcd4e92b2692, Project Burgundy CIM, June 2026, payments hardware) is a DIFFERENT company. Never map the bare string 'IPS' to PracticeTek.",
+      "PNHP (Physicians for a National Health Program) is not PNH.",
+      "MedStar PromptCare is MedStar's asset, not WCP's PromptCare.",
+      "Peritia is f/k/a PharmAlliance. The March 2026 portfolio KB lists BioBridges where the current portco list has Peritia - treat BioBridges-era documents as Peritia platform history and verify with Prithvi."
+    ]
+  },
+  "portcos": {
+    "ivy_rehab": {
+      "canonical_name": "Ivy Rehab",
+      "name_aliases": ["Ivy Rehab Network", "Ivy Rehab Physical Therapy", "Ivy Rehab for Kids", "Ivy Rehab and Pharmacy Partners"],
+      "entity_ids": [
+        {"id": "company_entity_2abd64dfa7b79d418aca11678f034f97", "display_name": "Ivy Rehab Network", "docs": 4676, "primary": true},
+        {"id": "company_entity_573f5ec5dd94238ec61824647cd66cff", "display_name": "Ivy Rehab and Pharmacy Partners", "docs": 220},
+        {"id": "company_entity_28946ef5f64e38f8797c7e66392b0b3c", "display_name": "Ivy Rehab for Kids", "docs": 175},
+        {"id": "company_entity_e1cdcfa5e17998a137549d4362b538ab", "display_name": "Ivy Rehab Physical Therapy", "docs": 145},
+        {"id": "company_entity_3f771891f38fa2acc449e28a61251bef", "display_name": "Ivy Rehab Continuation Fund", "docs": 85},
+        {"id": "company_entity_f583c0b9d6ee4220166c27613d30e2b7", "display_name": "Ivy Rehab Coinvestment Fund", "docs": 44},
+        {"id": "company_entity_ed480c0bb48d1260a8fd1a77e730c232", "display_name": "Ivy Rehab CF", "docs": 9}
+      ],
+      "excluded": [{"display_name": "Ivy Rehab4", "id": "company_entity_c0f6c99e31a630a466f2a835fd1774c9", "reason": "confidence 0.2, OCR-noise variant"}]
+    },
+    "altocare": {
+      "canonical_name": "Altocare",
+      "name_aliases": ["Altocare Franchising", "Altocare at Home", "Senior Helpers"],
+      "entity_ids": [
+        {"id": "company_entity_0f87701bbcb4ac6b2d42c9492228ba76", "display_name": "Altocare", "docs": 195, "primary": true},
+        {"id": "company_entity_066f38fa7fed636c9fe24af941dfdddb", "display_name": "Altocare Franchising", "docs": 5},
+        {"id": "company_entity_158083dfde3bee135d951eb782d29c73", "display_name": "Altocare at Home", "docs": 5},
+        {"id": "company_entity_fc5d9465889aa203a0dcb5d54a1e2bb2", "display_name": "Altocare+Elara PCS", "docs": 4, "note": "joint entity - Project Eclipse"},
+        {"id": "company_entity_ef5b47378eee06dd751ac3eab8d6677c", "display_name": "Altocare / PCS", "docs": 2},
+        {"id": "company_entity_d0afc5a9866f5044f72276b1a2b2d28e", "display_name": "Senior Helpers (Altocare)", "docs": 1},
+        {"id": "company_entity_4948e0df45333ddb43569b8ec50264e0", "display_name": "Altocare Senior Helpers", "docs": 1},
+        {"id": "company_entity_88499e69cd0b0ef927cb6254205ea54a", "display_name": "Concierge/Altocare", "docs": 1, "note": "joint entity with Concierge Home Care"}
+      ],
+      "excluded": []
+    },
+    "teamsnap": {
+      "canonical_name": "TeamSnap",
+      "name_aliases": ["TeamSnap ONE"],
+      "entity_ids": [
+        {"id": "company_entity_5673488dc72926fe3c2a8ac8186e7d7a", "display_name": "TeamSnap", "docs": 1748, "primary": true},
+        {"id": "company_entity_14cc6deb79a2584440498e1896b513fc", "display_name": "TeamSnap Platform", "docs": 55},
+        {"id": "company_entity_00831cea63b67d48dace8a69fd3dfeca", "display_name": "TeamSnap Management", "docs": 17},
+        {"id": "company_entity_1f6d1530422b5bb241eba4a062b645f2", "display_name": "TeamSnap ONE", "docs": 7},
+        {"id": "company_entity_4c7c89e21eb74e1ff863d93da599f440", "display_name": "TeamSnap + LeagueSide", "docs": 6},
+        {"id": "company_entity_2cb9cf815a9800eb3dc1505fd4ce600d", "display_name": "TeamSnap Intermediate, Inc.", "docs": 4},
+        {"id": "company_entity_ad7dd7e685a457c70f65369e1a2ca773", "display_name": "TeamSnap Purchaser, Inc.", "docs": 4}
+      ],
+      "excluded": [{"display_name": "TeamSnap 360", "id": "company_entity_9dd558783c067b4966ef5e4ac42523c5", "reason": "confidence 0.2, sourced from a PlayMetrics deal doc"}]
+    },
+    "apotheco": {
+      "canonical_name": "Apotheco",
+      "name_aliases": ["Apotheco Pharmacy Group", "Apotheco Pharmacies"],
+      "entity_ids": [
+        {"id": "company_entity_b269a513fb49de332f57e975c84fc625", "display_name": "Apotheco", "docs": 2382, "primary": true},
+        {"id": "company_entity_703d6fb7a7acf0634da4742b6dbe571d", "display_name": "Apotheco Pharmacy Group", "docs": 1273},
+        {"id": "company_entity_2c6429d8f3c704cc65b54580ec595f9c", "display_name": "Apotheco Management Group LLC", "docs": 37},
+        {"id": "company_entity_1528892ec8f9c1d1a6534b6e18b24cc3", "display_name": "Apotheco Cordant", "docs": 35},
+        {"id": "company_entity_dfdf06a879a22b891814e47c8a5b3c4b", "display_name": "Apotheco Pharmacy New York LLC", "docs": 32},
+        {"id": "company_entity_61adf65ab0bd273e31a001a03a608d1a", "display_name": "Apotheco Pharmacies", "docs": 23},
+        {"id": "company_entity_a621dbb11bbb1dc71789f954df1ec71f", "display_name": "Apotheco Medicinals", "docs": 19}
+      ],
+      "excluded": [{"display_name": "apothecopharmacy.com", "id": "company_entity_17cbdb558ebb1e3ed1fa6c74aab0e715", "reason": "domain-string entity, confidence 0.2"}]
+    },
+    "fusion_health": {
+      "canonical_name": "Fusion Health",
+      "name_aliases": ["Fusion Healthcare Staffing", "Fusion Healthcare"],
+      "entity_ids": [
+        {"id": "company_entity_5aa410d23da253a86a4997867eaaf7a4", "display_name": "Fusion Healthcare Staffing", "docs": 400, "primary": true},
+        {"id": "company_entity_1066b4400f3511f93d763f4ef3d937db", "display_name": "Fusion Health", "docs": 233},
+        {"id": "company_entity_9105090add6404f888a825c3d5088735", "display_name": "Fusion Healthcare", "docs": 26},
+        {"id": "company_entity_a75e1ee965f76bf2859415a7c4991dc2", "display_name": "Fusion Healthcare Staffing (HCS)", "docs": 5},
+        {"id": "company_entity_e36deada865ff63884aa2e4460afa3bc", "display_name": "Fusion Health Care", "docs": 3}
+      ],
+      "excluded": [
+        {"display_name": "Beacon Infusion Healthcare Services", "reason": "different company (substring match on 'infusion health')"},
+        {"display_name": "AlphaFusion Health Consulting", "reason": "different company"},
+        {"display_name": "Infusion Health", "reason": "different company"}
+      ]
+    },
+    "uvp": {
+      "canonical_name": "UVP",
+      "name_aliases": ["Unifeye Vision Partners", "UVP Holdings"],
+      "entity_ids": [
+        {"id": "company_entity_dac1aa3ffa670be981aee10051b0e4d4", "display_name": "UVP (UVP Holdings, LLC)", "docs": 1167, "primary": true, "note": "resolve confidence 0.2 despite being the main entity - do not trust confidence alone"},
+        {"id": "company_entity_05e2af8f83db259504122acafd79eba6", "display_name": "UVP Management, LLC", "docs": 96},
+        {"id": "company_entity_e05af8265dc0d43d4a3f44a2a8508865", "display_name": "UVPeye.com", "docs": 18},
+        {"id": "company_entity_e558495f15718f8e1719f47fc5144b9f", "display_name": "MEC / UVP Mgmt Equity", "docs": 14},
+        {"id": "company_entity_a3b44a22c9143cd12c3f78375339d392", "display_name": "UVP CV", "docs": 7},
+        {"id": "company_entity_b965a2ca52065851f68a4c5dee5ec648", "display_name": "UVP/Waud", "docs": 7},
+        {"id": "company_entity_973d35dbebb342c64cd8524ec6d246ce", "display_name": "Unifeye Vision Partners (UVP)", "docs": 6},
+        {"id": "company_entity_3792de7ad9bdf1692ff639c4fd5d254b", "display_name": "UVP (MEC)", "docs": 6}
+      ],
+      "excluded": []
+    },
+    "talogy": {
+      "canonical_name": "Talogy",
+      "name_aliases": ["Lifelong Learner Holdings", "Cubiks", "TalogyTech"],
+      "entity_ids": [
+        {"id": "company_entity_13e728350ae5c27f084a295c7da67cfb", "display_name": "Talogy (Talogy Limited)", "docs": 540, "primary": true},
+        {"id": "company_entity_427f693bfff76f5202d6d3c00f529416", "display_name": "Talogy (Cubiks Holdings Limited)", "docs": 179},
+        {"id": "company_entity_7e2d8d98c0af4f14d103b8e4b716853e", "display_name": "Talogy (f/k/a Lifelong Learner Holdings)", "docs": 30},
+        {"id": "company_entity_80e5638822ea8b423ccceb6ee7b65389", "display_name": "TTALOGY", "docs": 20},
+        {"id": "company_entity_dd8b643f15340494955880e669b53bc5", "display_name": "TalogyTech", "docs": 18},
+        {"id": "company_entity_27ea79ecb3851292244433ec7c2d9636", "display_name": "Talogy", "docs": 14},
+        {"id": "company_entity_a8e2364c39ec4635419f7f5e5b933db9", "display_name": "T-Talogy", "docs": 12},
+        {"id": "company_entity_5e6d4c7dd495b937430d2de2bf0c45c6", "display_name": "Talogy Tech", "docs": 10}
+      ],
+      "excluded": []
+    },
+    "career_certified": {
+      "canonical_name": "Career Certified",
+      "name_aliases": ["The CE Shop", "Knopman Marks"],
+      "entity_ids": [
+        {"id": "company_entity_f7c51ff39cfa61ce65f4e0c8df55f3e1", "display_name": "Career Certified", "docs": 614, "primary": true},
+        {"id": "company_entity_6b48062ad39110001ca15d53cb130b0e", "display_name": "Career Certified (The CE Shop)", "docs": 10},
+        {"id": "company_entity_13c8d4640a6f50b1c30bef68dd7066d6", "display_name": "Career Certified IC Materials", "docs": 5},
+        {"id": "company_entity_39e2cb8e66fa73b6b638b6f0d5438539", "display_name": "Career Certified Platform", "docs": 4},
+        {"id": "company_entity_a631a8d3bac3af2c28783441da5877f7", "display_name": "Knopman Marks & Career Certified", "docs": 3},
+        {"id": "company_entity_bc959b3ddb6cf00dade93bdbc2cb55ce", "display_name": "Career Certified Research", "docs": 2},
+        {"id": "company_entity_96d89f02591ad242a6443f8cce7689ce", "display_name": "Career Certified Refinancing", "docs": 2},
+        {"id": "company_entity_34c7674943317771dec1fa4a71f5b3e3", "display_name": "Career Certified dba The CE Shop", "docs": 2}
+      ],
+      "excluded": []
+    },
+    "mopec": {
+      "canonical_name": "Mopec",
+      "name_aliases": ["MP Acquisition", "Project Mint"],
+      "entity_ids": [
+        {"id": "company_entity_eb64122b4e3669fc466b39b3f3400dd4", "display_name": "Mopec", "docs": 368, "primary": true},
+        {"id": "company_entity_01abce9d64d309487990f9e94310dc63", "display_name": "Mopec Ultimate Holdings, L.P.", "docs": 15},
+        {"id": "company_entity_887e7f7bc395f448837d660909b9c2c8", "display_name": "WCP FIF VI Mopec, L.P.", "docs": 5},
+        {"id": "company_entity_cd6c2432a6346a28361f656570fc0a76", "display_name": "Mopec Strategic Roadmap", "docs": 5},
+        {"id": "company_entity_6e03c04868c4857478d0ae0559190bee", "display_name": "MP Acquisition, LLC dba Mopec, Inc.", "docs": 5},
+        {"id": "company_entity_98f0bab2c87865c018343594b5f895aa", "display_name": "Mopec (MP Acquisition, LLC)", "docs": 4},
+        {"id": "company_entity_173ca5c8fa47196e47efda95b30e6ca3", "display_name": "Mopec Buyer, L.P.", "docs": 4}
+      ],
+      "excluded": [{"display_name": "Stout Capital Mopec", "id": "company_entity_33319baf6f8df2263d4d2acabfd413b1", "reason": "co-invest vehicle branding, verify before including"}]
+    },
+    "promptcare": {
+      "canonical_name": "PromptCare",
+      "name_aliases": ["The PromptCare Companies", "Project Panther"],
+      "entity_ids": [
+        {"id": "company_entity_c33a9432914a60037626908236f4ac29", "display_name": "PromptCare (PromptCare Holdings, LP)", "docs": 1566, "primary": true},
+        {"id": "company_entity_c6f98157faf7ab2dc0cc95b639673fbe", "display_name": "PromptCare Companies", "docs": 666},
+        {"id": "company_entity_1c5733a9fa26959a7f80fe4d8716c70f", "display_name": "PromptCare Home Infusion", "docs": 16},
+        {"id": "company_entity_dee39007c8f70ea5c2953e719a92c10b", "display_name": "PromptCare Infusion", "docs": 16},
+        {"id": "company_entity_4b1ba2b32b21598239f0a36ef5d1f37d", "display_name": "PromptCare Respiratory", "docs": 13},
+        {"id": "company_entity_d12e9195661021cd492598836e72b459", "display_name": "PromptCare Infusion Buyer, Inc.", "docs": 11},
+        {"id": "company_entity_bba329e264ffc5941b597ec5f1dc79c9", "display_name": "PromptCare Specialty Infusion", "docs": 11}
+      ],
+      "excluded": [{"display_name": "MedStar PromptCare", "id": "company_entity_8ef908b534e6a6404943d8c629522d68", "reason": "MedStar's urgent care brand, different company"}]
+    },
+    "pnh": {
+      "canonical_name": "PNH",
+      "name_aliases": ["Provider Network Holdings"],
+      "entity_ids": [
+        {"id": "company_entity_22b83182c460e660eb3a421717d18c1f", "display_name": "PNH", "docs": 132, "primary": true, "note": "resolve confidence 0.2 despite being the main entity"},
+        {"id": "company_entity_5de5837b2fac794d5007622f1039c2ce", "display_name": "Provider Network Holdings (PNH)", "docs": 4},
+        {"id": "company_entity_888597b983eb61eb551f2e01b0c30ef8", "display_name": "PNH/Ironwood", "docs": 3},
+        {"id": "company_entity_3926077c62f8bb2a1ba4c248795eb68a", "display_name": "PNH Neurology MSO", "docs": 2}
+      ],
+      "excluded": [
+        {"display_name": "Physicians for a National Health Program (PNHP)", "reason": "advocacy organization, not the portco"},
+        {"display_name": "PNHP", "reason": "same as above"},
+        {"display_name": "Other PNH / Other PNH Equity Holders", "reason": "cap-table line items, not document sources worth filtering on"}
+      ]
+    },
+    "apderm": {
+      "canonical_name": "APDerm",
+      "name_aliases": ["APDerm Partners", "Adult & Pediatric Dermatology"],
+      "entity_ids": [
+        {"id": "company_entity_c9fae9ad4e96e1126c1b35f997549fde", "display_name": "APDerm (APDerm Partners Holdings, LLC)", "docs": 2385, "primary": true},
+        {"id": "company_entity_acf65841b1ac46a80b8fdedb13f17834", "display_name": "APDerm Management", "docs": 75},
+        {"id": "company_entity_891b957be8be01c03da759f49288c063", "display_name": "APDerm PC", "docs": 44},
+        {"id": "company_entity_5e9068cc80ec15dad3292343f1959650", "display_name": "APDerm Network of Practices", "docs": 25},
+        {"id": "company_entity_6ad6ed5dcc76a13ccb43ff6c32973d58", "display_name": "APDerm Partners Intermediate Holdings, LLC", "docs": 18},
+        {"id": "company_entity_4b84156db46d274bf060ba3927aac5ea", "display_name": "APDerm Dermatology Associates", "docs": 13},
+        {"id": "company_entity_b7bf4d92d17ed43d141aa6bad16806e5", "display_name": "APDerm Your Partner in Skin Care", "docs": 11},
+        {"id": "company_entity_d91d91bb937e25282db1382d17e43362", "display_name": "APDerm Owners Holdings, Inc.", "docs": 7}
+      ],
+      "excluded": []
+    },
+    "concierge_home_care": {
+      "canonical_name": "Concierge Home Care",
+      "name_aliases": ["Homecare Partners", "Project Hotel"],
+      "entity_ids": [
+        {"id": "company_entity_60aabaa6994b7311929c5e6a5c95dfa3", "display_name": "Concierge Home Care, Inc.", "docs": 1542, "primary": true},
+        {"id": "company_entity_35dc08166f8efa176002bdde994d92c1", "display_name": "Concierge Home Care (AccessRehab, L.L.C.)", "docs": 39},
+        {"id": "company_entity_58a421125cee95a74629785d68fd3671", "display_name": "Concierge Home Care", "docs": 38},
+        {"id": "company_entity_68a7bb4188d36d71cb31c2b5192c9df8", "display_name": "Concierge Home Care of the Villages, LLC", "docs": 22},
+        {"id": "company_entity_018a6448023e68de9730a064d5a0ef7d", "display_name": "Concierge Home Care of Jacksonville, LLC", "docs": 20},
+        {"id": "company_entity_05228061a645bf4a541c163408af42e4", "display_name": "Concierge Home Care of St Augustine LLC", "docs": 1}
+      ],
+      "excluded": [{"display_name": "office Concierge HOME CARE", "reason": "OCR-noise variant, confidence 0.2"}]
+    },
+    "hsi": {
+      "canonical_name": "HSI",
+      "name_aliases": ["Health & Safety Institute", "OneHSI"],
+      "entity_ids": [
+        {"id": "company_entity_530f9e9369c5434a9f111f9936417905", "display_name": "HSi (HSI Holding Company, Inc.)", "docs": 1849, "primary": true, "note": "resolve confidence 0.2 despite being the main entity"},
+        {"id": "company_entity_c6fd3c1687967d3b755dc168b83b9042", "display_name": "Health & Safety Institute (HSI)", "docs": 89},
+        {"id": "company_entity_3085a45cb7caf9e4eeeeae27eecbfe46", "display_name": "OneHSI", "docs": 40},
+        {"id": "company_entity_0de5ebdb05ce4fdd949d19a77f3ede3a", "display_name": "HSI Halo Holdings, LLC", "docs": 33}
+      ],
+      "excluded": [
+        {"display_name": "Northside Hospital", "reason": "unrelated, fuzzy-match noise"},
+        {"display_name": "HSIC", "reason": "Henry Schein ticker, different company"},
+        {"display_name": "Wealthsimple", "reason": "unrelated, fuzzy-match noise"},
+        {"display_name": "EHSInsight", "id": "company_entity_843954a484efc7c9dc782e7d517c67a2", "reason": "possibly an HSI add-on target (Project Helix) - verify with deal team before including"}
+      ]
+    },
+    "science_exchange": {
+      "canonical_name": "Science Exchange",
+      "name_aliases": ["Project Force"],
+      "entity_ids": [
+        {"id": "company_entity_2ee1768b539bea4e95b0e24b67104a97", "display_name": "Science Exchange, Inc.", "docs": 477, "primary": true},
+        {"id": "company_entity_a1a74e7381d0494dcc70df5b077a2c38", "display_name": "Science Exchange - HappiLabs", "docs": 2},
+        {"id": "company_entity_e21523adbd418102d9b4f3eb77848e42", "display_name": "Project Force (Science Exchange)", "docs": 1}
+      ],
+      "excluded": [{"display_name": "Biotech Science Exchange", "reason": "transcript-noise variant, confidence 0.4"}]
+    },
+    "peritia": {
+      "canonical_name": "Peritia",
+      "name_aliases": ["PharmAlliance", "Peritia Platform"],
+      "entity_ids": [
+        {"id": "company_entity_6b5e81ec194206de78939e657c7d33b0", "display_name": "Peritia (Peritia, LLC)", "docs": 65, "primary": true},
+        {"id": "company_entity_cd009a72151396a2a895a8061f6ffb3a", "display_name": "Peritia Platform", "docs": 4},
+        {"id": "company_entity_7991c7ee292659d13093240058462a96", "display_name": "Peritia Health", "docs": 1},
+        {"id": "company_entity_08c00b674817d2aa7f861dc8ab6401f3", "display_name": "Peritia Science. Strategy. Solutions.", "docs": 1},
+        {"id": "company_entity_018ed2e4d3b9c865bf5d8bf7835e9087", "display_name": "Peritia (f/k/a PharmAlliance)", "docs": 1},
+        {"id": "company_entity_88939e66fec364c243fc8a321afe5ef6", "display_name": "Peritia Growth Strategy", "docs": 1}
+      ],
+      "excluded": [{"display_name": "Peritia Claude", "reason": "confidence 0.4, likely extraction artifact"}]
+    },
+    "practicetek": {
+      "canonical_name": "PracticeTek",
+      "name_aliases": ["Integrated Practice Solutions", "Project Iris"],
+      "entity_ids": [
+        {"id": "company_entity_883f457a4f209a6494ab7cb9d3c7ddd5", "display_name": "PracticeTek", "docs": 616, "primary": true},
+        {"id": "company_entity_d893635cd57cfa0e9825132eb8bbe5d0", "display_name": "IPS PracticeTek", "docs": 34},
+        {"id": "company_entity_6a2a173abd49f0c423e879f546b8975b", "display_name": "PracticeTek (f/k/a IPS)", "docs": 19},
+        {"id": "company_entity_f47fcc96b89fa510cca37b7bf502b7f0", "display_name": "PracticeTek IGS", "docs": 5},
+        {"id": "company_entity_e4d29f44b228107e6119aa4582f81665", "display_name": "PracticeTek IGS Commercial DD", "docs": 5},
+        {"id": "company_entity_37fe24aef269756267e4d75dfe7af386", "display_name": "GSV PracticeTek Holdings, LLC", "docs": 3},
+        {"id": "company_entity_695f01e1836fd5695aaa28efb939df30", "display_name": "PracticeTek Software", "docs": 3},
+        {"id": "company_entity_8d9b611bbb2906b4419e1c174baac0bb", "display_name": "PracticeTek Holdings GP, LLC", "docs": 3}
+      ],
+      "excluded": [{"display_name": "IPS Group, Inc.", "id": "company_entity_ea789e59ecf9e50e4255fcd4e92b2692", "reason": "DIFFERENT COMPANY - Project Burgundy CIM (June 2026), payments hardware. Never map bare 'IPS' to PracticeTek."}]
+    }
+  }
+}
