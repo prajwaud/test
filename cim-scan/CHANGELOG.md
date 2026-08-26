@@ -4,6 +4,23 @@ Log every change to SCAN.md, DIGEST.md, framework/tiers.md, or the exposure map 
 the reason, not just the diff. Git holds the diff; the reason is what is irrecoverable
 later. Same convention as prompts/CHANGELOG.md for the daily brief.
 
+## 2026-08-26 - test run (Phase 1, recipient: Prithvi only)
+
+First end-to-end run over the June 2026 cohort (8 docs). Findings worth recording:
+
+- Discovery surfaced 30+ CIMs in the March-June window vs the golden set's 18. The
+  backlog (20+ March-May docs) is deliberately deferred to a one-time backfill report
+  per the pre-flight backfill guard.
+- Golden-set overlap regression: 4/5 exact (Softdocs 4, BryteBridge 2, H2 0, ADL 0);
+  DynamicAccess returned no AI evidence in top chunks vs reference Tier 1 - explainable,
+  logged in state.json. Full 18-doc regression still pending.
+- New defect verified: company_entity_ea789e59 conflates IPS Group (Burgundy) with
+  Integrated Practice Solutions (PracticeTek) and a 2016 doc. Alias map warning updated;
+  scans must filter per doc_id.
+- Page pinning worked where chunk text carried markers (Softdocs p.39, BryteBridge p.41
+  and p.72, H2 p.16); the Softdocs margin bridge could not be pinned and correctly fell
+  back to a section-name link.
+
 ## 2026-08-26 - initial build
 
 Built from the AI-in-CIMs scan spec (SPEC.md, 2026-08-26). Decisions made at build time:

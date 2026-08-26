@@ -6,6 +6,7 @@
     "refresh": "Quarterly, or when a portco renames or closes a major add-on. Re-run resolve() per portco and diff.",
     "warnings": [
       "PracticeTek was f/k/a IPS (Integrated Practice Solutions). 'IPS Group, Inc.' (company_entity_ea789e59ecf9e50e4255fcd4e92b2692, Project Burgundy CIM, June 2026, payments hardware) is a DIFFERENT company. Never map the bare string 'IPS' to PracticeTek.",
+      "VERIFIED 2026-08-26: company_entity_ea789e59 is CONTAMINATED - a company_id-filtered search returned Project Burgundy (IPS Group, 2026) AND Project Wrigley (Integrated Practice Solutions -> PracticeTek, 2021-22) AND a 2016 Project Leo CIM under the same entity id. When working near either company, filter by doc_id, never by this entity id alone. Escalate to Sai with the lag fix.",
       "PNHP (Physicians for a National Health Program) is not PNH.",
       "MedStar PromptCare is MedStar's asset, not WCP's PromptCare.",
       "Peritia is f/k/a PharmAlliance. The March 2026 portfolio KB lists BioBridges where the current portco list has Peritia - treat BioBridges-era documents as Peritia platform history and verify with Prithvi."
