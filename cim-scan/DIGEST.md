@@ -35,8 +35,21 @@ documents that landed during the week.
 
 ## 3. Assemble
 
-Use the template in `SPEC.md` section 12 exactly. Rules that get violated under time
-pressure, restated:
+Use the template in `SPEC.md` section 12 exactly. Two rules from Prithvi's review of the
+2026-08-26 test run:
+
+- **Open with the purpose.** The first paragraph states plainly what this instrument is
+  and why it exists: it reads every CIM ingested into the Knowledge Vault for how the
+  seller substantiates AI claims - underwritten in the numbers versus positioned as
+  capability - and turns what sellers are figuring out into questions for specific WCP
+  portcos. A reader seeing the email for the first time should not have to infer this.
+- **The lead item is factual, not editorial.** Its headline names the company and what
+  the document did; the body carries the mechanism and the seller's numbers, plus
+  same-window facts stated as facts. All interpretation is confined to the marked Read
+  line, and even there stays restrained - one call, one question, no thesis language in
+  the headline or body.
+
+Other rules that get violated under time pressure, restated:
 
 - Order tier sections descending. **Omit any tier section with no entries** - never print
   an empty header.

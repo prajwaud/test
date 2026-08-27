@@ -1,5 +1,15 @@
 # cim-scan changelog
 
+## 2026-08-26 - digest revisions from Prithvi's test-run review
+
+Two standing rules added to DIGEST.md section 3, reason: Prithvi reviewed the first test
+send and flagged (1) the project's purpose was not clear upfront - a first-time reader
+(Doug, R2) should not have to infer what the instrument is; (2) the lead item's framing
+was too opinionated - the headline editorialized ("healthcare is not writing one")
+instead of naming the company and the fact. Fix: purpose paragraph opens every digest;
+lead item is factual with inference confined to the Read line. Tier-by-tier entry format
+unchanged - explicitly confirmed good.
+
 Log every change to SCAN.md, DIGEST.md, framework/tiers.md, or the exposure map here with
 the reason, not just the diff. Git holds the diff; the reason is what is irrecoverable
 later. Same convention as prompts/CHANGELOG.md for the daily brief.
