@@ -1,5 +1,27 @@
 # Friday routine - setup instructions
 
+## Status 2026-08-27: routine is LIVE
+
+Trigger `trig_01C28o3A7NuVZduR2y25eRBq` fires every Friday at 10:30 UTC (6:30am ET on
+daylight time; 5:30am ET after clocks change - adjust to `30 11 * * 5` in November if
+the hour matters) into the build session, which holds the Knowledge Vault Documents and
+Microsoft 365 connectors. Each run: harvest reply feedback (DIGEST.md 0a), catch-up
+scan, pre-flight checks, assemble, send to praj@waudcapital.com only, commit and push.
+Distribution expands to Doug Rassner and rwaud2 only on Prithvi's explicit say-so.
+
+Two caveats, both checked on the first firing (2026-08-28):
+1. Whether the session-bound wake carries the connectors is [Likely] but unverified -
+   the trigger system stores no connector grants of its own. If no email (digest or
+   zero-CIM alert) arrives by ~7:00am ET Friday, the fallback is the UI-created routine
+   below.
+2. M365 send may raise its interactive prompt on an unattended turn (docs/TEST-LOG.md).
+   The procedure's fallback is a draft in Prithvi's Drafts folder, noted in the run
+   summary.
+
+The original UI-based setup below stands as the fallback path.
+
+---
+
 The weekly digest needs a scheduled routine that fires a fresh Claude session with the
 Knowledge Vault Documents and Microsoft 365 connectors attached.
 
