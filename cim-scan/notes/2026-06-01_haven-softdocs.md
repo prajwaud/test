@@ -38,9 +38,14 @@ lead_candidate: true
   without proportional headcount") is the polite version of the cost story and reads
   as more credible than a cut.
 - **Relevant portcos:**
-  - HSI - sell-side materials (Project Helix) are in draft in the Vault; this is the
-    margin-walk format buyers reviewing an EHS training platform will expect. Does the
-    Helix walk carry an AI line?
-  - PracticeTek and TeamSnap - nearest-term software exits; same question.
+  - HSI - sell-side materials (Project Helix, drafts dated March 2026) are in the
+    Vault; this is the margin-walk format buyers reviewing an EHS training platform
+    will expect. Does the Helix walk carry an AI line?
+  - Career Certified - Houlihan Lokey's market update (2026-01-28, in the Vault)
+    already recommends an AI Readiness Report ahead of its sale process and flags AI
+    risk as headline risk in professional learning; the Softdocs question lands here
+    with a banker already asking it.
+  - TeamSnap - exit scenarios modeled at 2027-2028 in the May 2026 executive IEP
+    materials; same question on a longer fuse.
   - Ivy Rehab - scribe work is sized (~$2.4-2.6M near-term EBITDA per prior work) but
     lives in narrative, not the bridge. Softdocs shows the fix.

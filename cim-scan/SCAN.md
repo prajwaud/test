@@ -95,7 +95,14 @@ Full note body - five fields, this order, no others:
    specific situation per the exposure map. Never a bare list of names.
 
 Sourcing discipline (spec section 8): fields 1-3 are sourced from the document only, no
-inference. Fields 4-5 are inference, grounded in known portco facts.
+inference. Fields 4-5 are inference, grounded in known portco facts. Portco-specific
+factual claims (exit timing above all) follow this source hierarchy: Knowledge Vault
+documents first (board materials, banker materials, sell-side drafts - live and dated),
+then the exposure map and portfolio KB (a dated snapshot; say so when it is the source).
+The reference digest is a format reference, never a fact source - statements in it are
+not evidence. When citing Vault evidence, carry file_name and doc_date, and remember
+doc_date lies (defect 2): a PracticeTek co-investor update from April 2024 carries
+doc_date 2028-07-31.
 
 ### Exhibit reference
 

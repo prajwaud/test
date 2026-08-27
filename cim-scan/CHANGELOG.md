@@ -1,5 +1,14 @@
 # cim-scan changelog
 
+## 2026-08-26 - provenance rule after Prithvi challenged an exit-timing claim
+
+The v2 test digest said "PracticeTek and TeamSnap are the nearest software exits" -
+inherited verbatim from the reference digest, unverified. The KB says TeamSnap ~2 years
+and Career Certified ~24 months are nearest; PracticeTek is 3-5 years. Rule added: the
+reference digest is a format reference only, never a fact source. Every portco-specific
+claim (exit timing especially) must trace to the KB, the exposure map, or a Vault
+document, or be dropped. Softdocs note corrected.
+
 ## 2026-08-26 - digest revisions from Prithvi's test-run review
 
 Two standing rules added to DIGEST.md section 3, reason: Prithvi reviewed the first test
