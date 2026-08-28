@@ -117,11 +117,17 @@ agent-generated and unreviewed. Reply to Prithvi with corrections.
 | Transport | Microsoft 365 MCP: `outlook_create_draft`, then send as a separate explicit step |
 
 **Current phase (set by Prithvi 2026-08-27): automatic weekly send, full distribution.**
-Create the draft addressed to praj@waudcapital.com, drassner@waudcapital.com and
-rwaud2@waudcapital.com (addresses verified from live mail 2026-08-27), then send it.
-If the send tool fails on an unattended run (the known M365 interactive permission
-prompt, docs/TEST-LOG.md), leave the draft in Prithvi's Drafts folder and say so in the
-run summary rather than retrying blindly.
+Delivery order matters - the send is the step most likely to stall unattended, so
+nothing else may depend on it:
+
+1. Create the draft addressed to praj@waudcapital.com, drassner@waudcapital.com and
+   rwaud2@waudcapital.com (addresses verified from live mail 2026-08-27).
+2. Commit and push notes + state FIRST, so the run's work survives a blocked send.
+3. Then call the send tool once. If it stalls or is denied (the known M365 interactive
+   permission prompt, docs/TEST-LOG.md - it required a manual click as late as the
+   2026-08-28 verification run, before the project permission allowlist in
+   .claude/settings.json existed), leave the draft in Prithvi's Drafts folder and say
+   so in the run summary rather than retrying blindly.
 
 **Inaugural full-distribution send (2026-08-28 only):** send the current baseline digest
 (June cohort, corrected notes in `notes/`) refreshed with any newly ingested CIMs from

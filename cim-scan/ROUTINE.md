@@ -14,9 +14,17 @@ Two caveats, both checked on the first firing (2026-08-28):
    the trigger system stores no connector grants of its own. If no email (digest or
    zero-CIM alert) arrives by ~7:00am ET Friday, the fallback is the UI-created routine
    below.
-2. M365 send may raise its interactive prompt on an unattended turn (docs/TEST-LOG.md).
-   The procedure's fallback is a draft in Prithvi's Drafts folder, noted in the run
-   summary.
+2. M365 send raises its interactive prompt - CONFIRMED on the 2026-08-28 verification
+   run (Prithvi had to click approve; connectors were fine, the send was not). Two
+   mitigations layered for the scheduled firing: (a) .claude/settings.json now
+   pre-approves the five MCP tools the run needs, and (b) DIGEST.md reorders delivery
+   so notes/state are pushed before the send attempt and a blocked send degrades to a
+   ready-to-send draft in Prithvi's Drafts folder. Caveat on (a): the settings file
+   lives on the feature branch; a container that clones fresh from main at wake will
+   not have it at settings-load time until the branch is merged. Fallback if the send
+   stalls Friday: the digest is in Drafts, addressed to all three - one manual click.
+   Durable fix if the prompt persists: app-only Graph send per docs/TEST-LOG.md once
+   the Entra credentials land.
 
 The original UI-based setup below stands as the fallback path.
 

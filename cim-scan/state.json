@@ -95,7 +95,7 @@
       "alert_sent_to": [
         "praj@waudcapital.com"
       ],
-      "notes": "Run now firing. Connectors present on scheduled wake (confirmed). filter_fallback:true observed on empty post-June window - guard held, nuance logged in SCAN.md. Inaugural full-distribution send remains at the 10:30 UTC scheduled firing."
+      "notes": "Run now firing. Connectors present on scheduled wake (confirmed). filter_fallback:true observed on empty post-June window - guard held, nuance logged in SCAN.md. CORRECTION per Prithvi: the send required his manual permission click - unattended send NOT proven. Mitigations: .claude/settings.json allowlist + DIGEST.md delivery reorder (push before send, Drafts fallback)."
     }
   ],
   "backlog": {
