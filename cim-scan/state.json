@@ -5,17 +5,98 @@
   },
   "last_digest_at": "2026-08-26",
   "scanned": [
-    {"doc_id": "fjFpvtC3ZDytnhy8jth3EQ1ynYc=", "company": "Softdocs (HAVEN)", "doc_date": "2026-06-01", "tier": 4, "noted": true, "scanned_at": "2026-08-26"},
-    {"doc_id": "GKu0406YF8cL7vLdSBgwFcP5bMg=", "company": "BryteBridge (Starlight)", "doc_date": "2026-06-01", "tier": 2, "noted": true, "scanned_at": "2026-08-26"},
-    {"doc_id": "8MdiZW882riE0IzzoldJQlc31oo=", "company": "IPS Group (Burgundy)", "doc_date": "2026-06-01", "tier": 2, "noted": true, "scanned_at": "2026-08-26"},
-    {"doc_id": "lqk9qhwmXgYzFA6fcb425OHLUm0=", "company": "H2 Health", "doc_date": "2026-06-30", "tier": 0, "noted": true, "scanned_at": "2026-08-26"},
-    {"doc_id": "gJIdjw2Hu7IhAkBELELfFOVdUgg=", "company": "Innovative Sleep Centers (Lion)", "doc_date": "2026-06-01", "tier": 0, "noted": true, "scanned_at": "2026-08-26"},
-    {"doc_id": "1W0k8xBZ/Jc56w+g7W8JWHtK3yw=", "company": "Venture Speech & OT (Piedmont)", "doc_date": "2026-06-01", "tier": 0, "noted": true, "scanned_at": "2026-08-26"},
-    {"doc_id": "QfVJhlr2N6HmMITanbEEf9Bt+wQ=", "company": "ADL Final Mile (Omaha)", "doc_date": "2026-06-09", "tier": 0, "noted": false, "scanned_at": "2026-08-26", "note_skipped": "no portfolio relevance - log only"},
-    {"doc_id": "JGUixoNkN+YL68KTxxst8ovkY4c=", "company": "DynamicAccess (Florence)", "doc_date": "2026-06-01", "tier": 0, "noted": false, "scanned_at": "2026-08-26", "note_skipped": "no AI evidence surfaced; golden set says Tier 1 - regression disagreement, recorded"}
+    {
+      "doc_id": "fjFpvtC3ZDytnhy8jth3EQ1ynYc=",
+      "company": "Softdocs (HAVEN)",
+      "doc_date": "2026-06-01",
+      "tier": 4,
+      "noted": true,
+      "scanned_at": "2026-08-26"
+    },
+    {
+      "doc_id": "GKu0406YF8cL7vLdSBgwFcP5bMg=",
+      "company": "BryteBridge (Starlight)",
+      "doc_date": "2026-06-01",
+      "tier": 2,
+      "noted": true,
+      "scanned_at": "2026-08-26"
+    },
+    {
+      "doc_id": "8MdiZW882riE0IzzoldJQlc31oo=",
+      "company": "IPS Group (Burgundy)",
+      "doc_date": "2026-06-01",
+      "tier": 2,
+      "noted": true,
+      "scanned_at": "2026-08-26"
+    },
+    {
+      "doc_id": "lqk9qhwmXgYzFA6fcb425OHLUm0=",
+      "company": "H2 Health",
+      "doc_date": "2026-06-30",
+      "tier": 0,
+      "noted": true,
+      "scanned_at": "2026-08-26"
+    },
+    {
+      "doc_id": "gJIdjw2Hu7IhAkBELELfFOVdUgg=",
+      "company": "Innovative Sleep Centers (Lion)",
+      "doc_date": "2026-06-01",
+      "tier": 0,
+      "noted": true,
+      "scanned_at": "2026-08-26"
+    },
+    {
+      "doc_id": "1W0k8xBZ/Jc56w+g7W8JWHtK3yw=",
+      "company": "Venture Speech & OT (Piedmont)",
+      "doc_date": "2026-06-01",
+      "tier": 0,
+      "noted": true,
+      "scanned_at": "2026-08-26"
+    },
+    {
+      "doc_id": "QfVJhlr2N6HmMITanbEEf9Bt+wQ=",
+      "company": "ADL Final Mile (Omaha)",
+      "doc_date": "2026-06-09",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-08-26",
+      "note_skipped": "no portfolio relevance - log only"
+    },
+    {
+      "doc_id": "JGUixoNkN+YL68KTxxst8ovkY4c=",
+      "company": "DynamicAccess (Florence)",
+      "doc_date": "2026-06-01",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-08-26",
+      "note_skipped": "no AI evidence surfaced; golden set says Tier 1 - regression disagreement, recorded"
+    }
   ],
   "digests": [
-    {"date": "2026-08-26", "type": "test-run", "window": "June 2026 doc_date cohort (first run)", "n": 8, "m": 6, "lead": "Softdocs (HAVEN)", "draft_created": true, "sent_at": null, "recipients": ["praj@waudcapital.com"]}
+    {
+      "date": "2026-08-26",
+      "type": "test-run",
+      "window": "June 2026 doc_date cohort (first run)",
+      "n": 8,
+      "m": 6,
+      "lead": "Softdocs (HAVEN)",
+      "draft_created": true,
+      "sent_at": null,
+      "recipients": [
+        "praj@waudcapital.com"
+      ]
+    },
+    {
+      "date": "2026-08-28T00:53Z",
+      "type": "manual-verification-run",
+      "window": "since 2026-08-26 baseline",
+      "n_new": 0,
+      "replies_processed": 0,
+      "alert_sent_to": [
+        "praj@waudcapital.com"
+      ],
+      "notes": "Run now firing. Connectors present on scheduled wake (confirmed). filter_fallback:true observed on empty post-June window - guard held, nuance logged in SCAN.md. Inaugural full-distribution send remains at the 10:30 UTC scheduled firing."
+    }
   ],
   "backlog": {
     "unscanned_estimate": "20+ CIMs with doc_date 2026-03 through 2026-05 surfaced in discovery but not yet scanned (Talview, Symphony Talent, Incremental, Pharmbills, Ovation Tax, CORE, TempusDirect, Flinn, Pocket Prep, MolPort, Hayes Valley, Gridline, Performance Architects, Tusk, AMS Healthcare, Zytomics, Pathways/Clarvida, Procell, OnAsset, Rivers Bend, Mazza, HCR Home Care, Trident, Archer Health, ENET, Harmar, Kinexon, Jones Tech, plus golden-set docs not in the June cohort)",

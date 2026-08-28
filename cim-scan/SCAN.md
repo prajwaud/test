@@ -29,8 +29,13 @@ Discovery therefore works by wide-window probing plus doc_id diffing:
 
 - **`doc_type` is lowercase `"cim"`.** The filter is case-sensitive and fails soft:
   `"CIM"` silently returns unfiltered results with `filter_fallback: true`.
-- **Assert `filter_fallback === false` on every filtered call.** If true, abort the run
-  and alert Prithvi. Never proceed on a silent fallback.
+- **Assert `filter_fallback === false` on every filtered call.** If true, never use the
+  returned results - they are unfiltered. Verified 2026-08-28: the server also sets
+  `filter_fallback: true` when the filter legitimately matches zero documents (e.g. a
+  doc_date window past the ingestion lag edge). Distinguish the two by inspecting the
+  returned doc_dates: all outside the window means an empty window - take the zero-CIM
+  path; mixed or in-window results with fallback true means the filter itself failed -
+  abort and alert Prithvi.
 - **Cross-check `doc_date` against any date embedded in `file_name`** (e.g. a file named
   "Overview 11.29.21" carrying `doc_date: 2025-12-30`). On conflict, prefer the filename
   date and set `doc_date_flagged: true` in the note frontmatter.
