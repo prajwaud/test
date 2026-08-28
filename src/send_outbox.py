@@ -90,9 +90,12 @@ def main() -> int:
         return 0
 
     allowlist = load_allowlist()
-    mailbox = os.environ.get("BRIEF_MAILBOX")
+    # All automated mail sends from the agent mailbox (SEND_MAILBOX); BRIEF_MAILBOX is
+    # the fallback for the interim where only Prithvi's mailbox exists in the policy.
+    mailbox = os.environ.get("SEND_MAILBOX") or os.environ.get("BRIEF_MAILBOX")
     if not mailbox and not args.dry_run:
-        print("BRIEF_MAILBOX is not set. See ADMIN-ENTRA-REQUEST.md.", file=sys.stderr)
+        print("Neither SEND_MAILBOX nor BRIEF_MAILBOX is set. "
+              "See ADMIN-ENTRA-REQUEST.md.", file=sys.stderr)
         return 1
 
     failures = 0

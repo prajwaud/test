@@ -41,6 +41,7 @@ jobs:
           GRAPH_CLIENT_ID: ${{ secrets.GRAPH_CLIENT_ID }}
           GRAPH_CLIENT_SECRET: ${{ secrets.GRAPH_CLIENT_SECRET }}
           BRIEF_MAILBOX: ${{ secrets.BRIEF_MAILBOX }}
+          SEND_MAILBOX: ${{ secrets.SEND_MAILBOX }}
           DRY_RUN: ${{ inputs.dry_run }}
         run: |
           if [ -z "$GRAPH_CLIENT_SECRET" ]; then

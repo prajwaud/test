@@ -59,8 +59,11 @@ def main() -> int:
               "this. See the timezone note in docs/TEST-LOG.md. ---")
         return 0
 
+    # Reads come from Prithvi's mailbox; the send goes out from the agent mailbox when
+    # one is configured (SEND_MAILBOX), so all automated mail shares one sender identity.
+    send_from = os.environ.get("SEND_MAILBOX", mailbox)
     try:
-        graph_client.send_mail(token, mailbox, subject, body)
+        graph_client.send_mail(token, send_from, subject, body, to=mailbox)
     except graph_client.GraphError as exc:
         print(f"Send failed: {exc}", file=sys.stderr)
         return 1
