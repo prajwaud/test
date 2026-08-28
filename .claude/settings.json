@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Knowledge_Vault_Documents__search_evidence",
+      "mcp__Knowledge_Vault_Documents__resolve",
+      "mcp__Microsoft_365__outlook_email_search",
+      "mcp__Microsoft_365__outlook_create_draft",
+      "mcp__Microsoft_365__outlook_send_draft"
+    ]
+  }
+}
