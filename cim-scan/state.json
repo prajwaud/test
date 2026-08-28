@@ -111,7 +111,8 @@
         "rwaud2@waudcapital.com"
       ],
       "draft_created": true,
-      "sent_at": "pending-send-attempt"
+      "sent_at": "2026-08-28T10:37Z",
+      "send_mode": "unattended - permission allowlist held, no manual approval"
     }
   ],
   "backlog": {
