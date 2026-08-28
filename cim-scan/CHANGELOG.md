@@ -1,5 +1,19 @@
 # cim-scan changelog
 
+## 2026-08-28 - transport moved outside Claude (outbox + app-only Graph)
+
+Reason: the inaugural send ALSO required Prithvi's manual approval click - the third
+confirmation, and proof the .claude/settings.json allowlist does not clear the M365 MCP
+send prompt in this org. Two prior run records overclaimed unattended sends; both
+corrected. Decision (Prithvi): build the send path outside Claude. Implemented:
+`outbox/` queue with a recipient allowlist, `src/send_outbox.py` (app-only Graph,
+reusing the daily brief's graph_client with HTML + multi-recipient support), and
+`.github/workflows/send-outbox.yml` (push-triggered plus Friday backstop; no-ops until
+the Entra secrets exist - same credential the daily brief awaits, no new admin ask).
+DIGEST.md delivery rewritten: Claude assembles and queues; it never sends. Interim
+until credentials land: queue plus an MCP draft for Prithvi's one click, gated on the
+absence of receipts in outbox/sent/.
+
 ## 2026-08-26 - provenance rule after Prithvi challenged an exit-timing claim
 
 The v2 test digest said "PracticeTek and TeamSnap are the nearest software exits" -

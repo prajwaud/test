@@ -116,18 +116,26 @@ agent-generated and unreviewed. Reply to Prithvi with corrections.
 | Subject | `Weekly AI-in-CIMs scan - {n} ingested, {m} with signal` |
 | Transport | Microsoft 365 MCP: `outlook_create_draft`, then send as a separate explicit step |
 
-**Current phase (set by Prithvi 2026-08-27): automatic weekly send, full distribution.**
-Delivery order matters - the send is the step most likely to stall unattended, so
-nothing else may depend on it:
+**Transport (settled by Prithvi 2026-08-28): Claude never sends. The outbox does.**
+Every M365 MCP send requires Prithvi's manual approval click - confirmed three times,
+including the inaugural send, and the .claude/settings.json allowlist did NOT clear it.
+Claude's job ends at assembly; delivery belongs to the external sender
+(`src/send_outbox.py` via `.github/workflows/send-outbox.yml`, app-only Graph).
 
-1. Create the draft addressed to praj@waudcapital.com, drassner@waudcapital.com and
-   rwaud2@waudcapital.com (addresses verified from live mail 2026-08-27).
-2. Commit and push notes + state FIRST, so the run's work survives a blocked send.
-3. Then call the send tool once. If it stalls or is denied (the known M365 interactive
-   permission prompt, docs/TEST-LOG.md - it required a manual click as late as the
-   2026-08-28 verification run, before the project permission allowlist in
-   .claude/settings.json existed), leave the draft in Prithvi's Drafts folder and say
-   so in the run summary rather than retrying blindly.
+Delivery steps for the Friday run:
+
+1. Write the finished email to `outbox/cim-digest-YYYY-MM-DD.json` per the schema in
+   `src/send_outbox.py`: subject, `to` = [praj, drassner, rwaud2]@waudcapital.com
+   (all three must be on `outbox/recipients-allowlist.json`), body as HTML,
+   content_type "HTML", source "cim-scan digest YYYY-MM-DD".
+2. Commit and push notes + state + the outbox entry together. The push itself triggers
+   the send workflow; a Friday 11:07 UTC backstop sweep retries anything left pending.
+3. Interim, until the Graph credentials exist: if `outbox/sent/` contains no receipt
+   yet, the workflow is still a no-op, so ALSO create an MCP draft addressed to all
+   three and tell Prithvi it needs his click. Once the first receipt appears in
+   `outbox/sent/`, stop creating drafts - queue only, and remove any still-pending
+   duplicate for the same digest before the workflow can double-send.
+4. Never call outlook_send_mail or outlook_send_draft on a scheduled run.
 
 **Inaugural full-distribution send (2026-08-28 only):** send the current baseline digest
 (June cohort, corrected notes in `notes/`) refreshed with any newly ingested CIMs from

@@ -1,0 +1,8 @@
+{
+  "_purpose": "Deterministic recipient guard for src/send_outbox.py. The outbox is written by automated Claude sessions; this file is what prevents a bug or poisoned input from mailing confidential content to an arbitrary address. Adding a recipient is a deliberate, human-reviewed commit.",
+  "allowed_recipients": [
+    "praj@waudcapital.com",
+    "drassner@waudcapital.com",
+    "rwaud2@waudcapital.com"
+  ]
+}

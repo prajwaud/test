@@ -1,0 +1,64 @@
+name: Send Outbox
+
+# Sends whatever Claude sessions have queued in outbox/ via app-only Graph.
+# Triggers: a push that touches outbox/ (event-driven - the digest goes out minutes
+# after the Friday routine commits it), plus a Friday backstop sweep and manual runs.
+# No-ops cleanly while the Entra credentials are not yet configured as secrets.
+on:
+  push:
+    branches: [main]
+    paths: ["outbox/*.json"]
+  schedule:
+    - cron: "7 11 * * 5"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Validate and print without sending"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Send pending outbox entries
+        env:
+          GRAPH_TENANT_ID: ${{ secrets.GRAPH_TENANT_ID }}
+          GRAPH_CLIENT_ID: ${{ secrets.GRAPH_CLIENT_ID }}
+          GRAPH_CLIENT_SECRET: ${{ secrets.GRAPH_CLIENT_SECRET }}
+          BRIEF_MAILBOX: ${{ secrets.BRIEF_MAILBOX }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          if [ -z "$GRAPH_CLIENT_SECRET" ]; then
+            echo "Graph credentials not configured yet (ADMIN-ENTRA-REQUEST.md) - skipping."
+            exit 0
+          fi
+          if [ "$DRY_RUN" = "true" ]; then
+            python -m src.send_outbox --dry-run
+          else
+            python -m src.send_outbox
+          fi
+
+      - name: Commit send receipts
+        run: |
+          if [ -n "$(git status --porcelain outbox/)" ]; then
+            git config user.name "outbox-sender"
+            git config user.email "actions@users.noreply.github.com"
+            git add outbox/
+            git commit -m "outbox: send receipts [skip ci]"
+            git push
+          fi

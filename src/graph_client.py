@@ -150,9 +150,20 @@ def get_unread(token: str, mailbox: str, hours: int = 24) -> list[dict[str, Any]
 
 
 def send_mail(token: str, mailbox: str, subject: str, body: str,
-              to: str | None = None) -> None:
-    """Send plain text mail from and to the given mailbox."""
-    recipient = to or mailbox
+              to: str | list[str] | None = None,
+              content_type: str = "Text") -> None:
+    """Send mail from the given mailbox.
+
+    `to` accepts a single address, a list, or None (send to the mailbox itself).
+    `content_type` is "Text" or "HTML" - the digest ships HTML, the brief plain text.
+    """
+    if to is None:
+        recipients = [mailbox]
+    elif isinstance(to, str):
+        recipients = [to]
+    else:
+        recipients = list(to)
+
     resp = requests.post(
         f"{GRAPH_BASE}/users/{mailbox}/sendMail",
         headers={
@@ -162,8 +173,10 @@ def send_mail(token: str, mailbox: str, subject: str, body: str,
         json={
             "message": {
                 "subject": subject,
-                "body": {"contentType": "Text", "content": body},
-                "toRecipients": [{"emailAddress": {"address": recipient}}],
+                "body": {"contentType": content_type, "content": body},
+                "toRecipients": [
+                    {"emailAddress": {"address": r}} for r in recipients
+                ],
             },
             "saveToSentItems": True,
         },
