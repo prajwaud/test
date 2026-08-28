@@ -3,7 +3,7 @@
     "purpose": "Durable state between scans and digests. scanned[] is the dedupe ledger for discovery (doc_ids already processed); digests[] is the send history. Commit and push after every run.",
     "created": "2026-08-26"
   },
-  "last_digest_at": "2026-08-26",
+  "last_digest_at": "2026-08-28",
   "scanned": [
     {
       "doc_id": "fjFpvtC3ZDytnhy8jth3EQ1ynYc=",
@@ -96,6 +96,22 @@
         "praj@waudcapital.com"
       ],
       "notes": "Run now firing. Connectors present on scheduled wake (confirmed). filter_fallback:true observed on empty post-June window - guard held, nuance logged in SCAN.md. CORRECTION per Prithvi: the send required his manual permission click - unattended send NOT proven. Mitigations: .claude/settings.json allowlist + DIGEST.md delivery reorder (push before send, Drafts fallback)."
+    },
+    {
+      "date": "2026-08-28T10:32Z",
+      "type": "inaugural-scheduled-send",
+      "window": "June 2026 cohort baseline; 0 newly ingested since 2026-08-26",
+      "n": 8,
+      "m": 6,
+      "lead": "Softdocs (HAVEN)",
+      "replies_processed": 0,
+      "recipients": [
+        "praj@waudcapital.com",
+        "drassner@waudcapital.com",
+        "rwaud2@waudcapital.com"
+      ],
+      "draft_created": true,
+      "sent_at": "pending-send-attempt"
     }
   ],
   "backlog": {
