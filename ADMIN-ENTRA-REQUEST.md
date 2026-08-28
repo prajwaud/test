@@ -1,9 +1,16 @@
-# Entra ID permission request - automated daily brief
+# Entra ID permission request - automated sends from Prithvi's mailbox
 
 **Requested by:** Prithvi Raj (praj@waudcapital.com)
-**Purpose:** An automated email that sends Prithvi a summary of his own calendar and unread
-mail each weekday morning at 5:00am ET. It reads one mailbox and sends to that same mailbox.
-No other user's data is accessed, and nothing is sent to anyone else.
+**Purpose:** Two scheduled, unattended emails sent from Prithvi's own mailbox:
+
+1. A daily brief summarizing his own calendar and unread mail, sent to himself each
+   weekday at 5:00am ET.
+2. A weekly market-intelligence digest sent each Friday morning to a fixed internal
+   distribution of three: Prithvi Raj, Doug Rassner and Reeve Waud Jr.
+
+Only Prithvi's mailbox is read or sent from. Recipients are additionally constrained in
+code to a version-controlled allowlist of the three names above; adding a recipient
+requires a reviewed commit.
 
 **Why this needs app-only permissions:** the job runs unattended at 5am. Delegated
 (user-signed-in) permissions require an interactive browser sign-in and a human to approve
