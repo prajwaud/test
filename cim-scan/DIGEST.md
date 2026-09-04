@@ -118,7 +118,7 @@ agent-generated and unreviewed. Reply to Prithvi with corrections.
 | Sender | Claude (WCP AI Agent) |
 | Recipients | Prithvi Raj, Doug Rassner, rwaud2 |
 | Subject | `Weekly AI-in-CIMs scan - {n} ingested, {m} with signal` |
-| Transport | Microsoft 365 MCP: `outlook_create_draft`, then send as a separate explicit step |
+| Transport | Outbox in **prajwaud/WCP-PR-OS** - queue there, its Send Outbox workflow delivers via app-only Graph |
 
 **Transport (settled by Prithvi 2026-08-28): Claude never sends. The outbox does.**
 Every M365 MCP send requires Prithvi's manual approval click - confirmed three times,
@@ -126,20 +126,48 @@ including the inaugural send, and the .claude/settings.json allowlist did NOT cl
 Claude's job ends at assembly; delivery belongs to the external sender
 (`src/send_outbox.py` via `.github/workflows/send-outbox.yml`, app-only Graph).
 
+### THE OUTBOX MOVED REPOS - 2026-09-04
+
+**Queue into `prajwaud/WCP-PR-OS`, not into this repo.** Prithvi's call, after the 9/4
+digest was assembled correctly and mailed nobody.
+
+This repo has no Graph secrets, so its `Send Outbox` workflow hit its own
+`if [ -z "$GRAPH_CLIENT_SECRET" ]` guard and exited 0 every week - a green run that sent
+nothing, with the digest reaching only a draft. The options were to copy a mailbox-scoped
+credential into this repo or to move the send to the repo that already holds a working
+one. Prithvi chose the second: one credential, one place, one expiry to track.
+
+This section is the authority on transport. The Friday Routine's own prompt still carries
+the older inline wording ("commit and push together with notes and state.json - the push
+triggers the send workflow"), because a routine bound to another session cannot have its
+prompt edited from a Claude Code session. Where the two disagree, **this file wins** - the
+prompt itself says "Deliver per DIGEST.md transport". Prithvi can correct the prompt text
+in the Routines UI when convenient; nothing breaks until he does.
+
 Delivery steps for the Friday run:
 
-1. Write the finished email to `outbox/cim-digest-YYYY-MM-DD.json` per the schema in
-   `src/send_outbox.py`: subject, `to` = [praj, drassner, rwaud2]@waudcapital.com
-   (all three must be on `outbox/recipients-allowlist.json`), body as HTML,
-   content_type "HTML", source "cim-scan digest YYYY-MM-DD".
-2. Commit and push notes + state + the outbox entry together. The push itself triggers
-   the send workflow; a Friday 11:07 UTC backstop sweep retries anything left pending.
-3. Interim, until the Graph credentials exist: if `outbox/sent/` contains no receipt
-   yet, the workflow is still a no-op, so ALSO create an MCP draft addressed to all
-   three and tell Prithvi it needs his click. Once the first receipt appears in
-   `outbox/sent/`, stop creating drafts - queue only, and remove any still-pending
-   duplicate for the same digest before the workflow can double-send.
-4. Never call outlook_send_mail or outlook_send_draft on a scheduled run.
+1. Make sure `prajwaud/WCP-PR-OS` is in the session's GitHub scope. If it is not, attach
+   it with `add_repo` (owner `prajwaud`, repo `WCP-PR-OS`, access `push`) and clone it.
+2. Write the finished email to `outbox/cim-digest-YYYY-MM-DD.json` **in WCP-PR-OS**, per
+   the schema in that repo's `src/send_outbox.py`: subject, `to` = [praj, drassner,
+   rwaud2]@waudcapital.com (all three are on that repo's
+   `outbox/recipients-allowlist.json`), body as HTML, content_type "HTML", source
+   "cim-scan digest YYYY-MM-DD".
+3. Push that entry to `WCP-PR-OS` main. The push triggers `Send Outbox` there, which mints
+   an app-only Graph token, checks every recipient against the allowlist, sends, then
+   commits a receipt to `outbox/sent/` and drains the queue - about a minute end to end. A
+   Friday 11:07 UTC sweep in that repo retries anything left pending.
+4. Commit notes and `state.json` to **this** repo as before. Only the outbox entry moved.
+   Do not queue into this repo's `outbox/` any more; nothing sends from there.
+5. Never call `outlook_send_mail` or `outlook_send_draft` on a scheduled run. The interim
+   MCP-draft step is **retired**: its condition was "while `outbox/sent/` contains no
+   receipt", and WCP-PR-OS now has one - `verify-send-path-2026-09-04.json`, sent 11:29
+   UTC on 9/4, the first message the outbox path ever delivered. Do not create a draft as
+   well; that would duplicate the digest.
+6. In the run summary, state whether the WCP-PR-OS `Send Outbox` run succeeded and a
+   receipt appeared in `outbox/sent/`. If the entry is still sitting unsent, say so
+   plainly and name the error. A digest nobody received must never be reported as done -
+   that is precisely how the 9/4 run looked green.
 
 **Inaugural full-distribution send (2026-08-28 only):** send the current baseline digest
 (June cohort, corrected notes in `notes/`) refreshed with any newly ingested CIMs from
@@ -147,16 +175,32 @@ the catch-up scan. Do not take the zero-CIM alert path this one time - the basel
 the content. No [TEST] prefix. From the following Friday onward, normal window behavior
 and the zero-CIM guard apply.
 
-**Phase 2 (unattended send) is not enabled and has an unresolved transport question.** The
-daily-brief work in this repo (docs/TEST-LOG.md) proved that M365 MCP send raises an
-interactive permission prompt and fails unattended. Assume `outlook_send_draft` has the
-same failure mode until tested. Unattended send will likely need app-only Graph (client
-credentials), and the pending Entra Application Access Policy is scoped to
-praj@waudcapital.com only - sending "from the agent" to Doug and rwaud2 needs either a
-dedicated agent mailbox added to the policy or an explicit decision from Prithvi to send
-from his mailbox. Do not schedule Phase 2 until (a) two clean reviewed sends, (b) the
-ingestion lag is closed, (c) exhibit rendering exists, and (d) the transport question is
-decided.
+**Phase 2 (unattended send) is now live, with one thing still undecided.** The transport
+question is answered: app-only Graph works unattended, proven end to end in WCP-PR-OS on
+2026-09-04. MCP send remains unusable on a schedule (it raises an approval prompt), which
+is why Claude still never sends and the outbox exists at all.
+
+**Open, and it needs Prithvi: the digest will now arrive looking as though he sent it.**
+Section 4 of this file says the email sends from the agent, not from Prithvi. It will not.
+WCP-PR-OS sets no `SEND_MAILBOX`, so `src/send_outbox.py` falls back to `BRIEF_MAILBOX` -
+praj@waudcapital.com - and its Application Access Policy is scoped to that mailbox alone.
+The policy restricts which mailbox the app acts *as*, not who it may write to, so Doug and
+rwaud2 receive it normally; it simply comes from Prithvi's address. WCP-PR-OS finding 41
+also established that the display name cannot be overridden - Exchange silently replaces
+it with the mailbox owner's, returning 202 as though it had complied.
+
+The footer ("Generated by Claude against the WCP Knowledge Vault") is the only signal to a
+reader that Prithvi did not write it. That may be enough, or it may not, and it is a
+question about how two colleagues read a mail with his name on it rather than a technical
+one. Two ways to close it, both his call:
+
+- Accept it. The footer carries the disclosure and the digest is his instrument anyway.
+- Provision the dedicated agent mailbox (this repo's `ADMIN-ENTRA-REQUEST.md`), add it to
+  the access policy scope group, and set `SEND_MAILBOX` in WCP-PR-OS. The sender then
+  reads as the agent, which is what section 4 assumed all along.
+
+The other Phase 2 preconditions still stand for widening scope beyond this digest: two
+clean reviewed sends, the ingestion lag closed, and exhibit rendering built.
 
 ## 6. Close out
 
