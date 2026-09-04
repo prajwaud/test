@@ -3,7 +3,7 @@
     "purpose": "Durable state between scans and digests. scanned[] is the dedupe ledger for discovery (doc_ids already processed); digests[] is the send history. Commit and push after every run.",
     "created": "2026-08-26"
   },
-  "last_digest_at": "2026-08-28",
+  "last_digest_at": "2026-09-04",
   "scanned": [
     {
       "doc_id": "fjFpvtC3ZDytnhy8jth3EQ1ynYc=",
@@ -70,6 +70,152 @@
       "noted": false,
       "scanned_at": "2026-08-26",
       "note_skipped": "no AI evidence surfaced; golden set says Tier 1 - regression disagreement, recorded"
+    },
+    {
+      "doc_id": "EBBm3bPAZlYYtF6HQfswNI29Vsg=",
+      "company": "Marketron Broadcast Solutions (Amplify)",
+      "doc_date": "2026-08-11",
+      "tier": 4,
+      "noted": true,
+      "scanned_at": "2026-09-04"
+    },
+    {
+      "doc_id": "Iv/GctGZWmrp6ujp6S3sy06tymw=",
+      "company": "IHRDC (Eagle)",
+      "doc_date": "2026-08-11",
+      "tier": 4,
+      "noted": true,
+      "scanned_at": "2026-09-04"
+    },
+    {
+      "doc_id": "K4rncB1bVWHGi8yaB4IozN0nZII=",
+      "company": "Optimy (Easel)",
+      "doc_date": "2026-07-06",
+      "tier": 3,
+      "noted": true,
+      "scanned_at": "2026-09-04"
+    },
+    {
+      "doc_id": "5hWbiJ6y/iYTBBku5I/L2gkWR+g=",
+      "company": "New Reach Holdco (Horizons)",
+      "doc_date": "2026-06-22",
+      "tier": 3,
+      "noted": true,
+      "scanned_at": "2026-09-04"
+    },
+    {
+      "doc_id": "PMHnpfd0WCKySnje1fbQKzZHzAA=",
+      "company": "Enliven Health (ELGIN)",
+      "doc_date": "2026-08-11",
+      "tier": 2,
+      "noted": true,
+      "scanned_at": "2026-09-04"
+    },
+    {
+      "doc_id": "uf1xKx4SyNBkF5yYlYD/cIx1faw=",
+      "company": "CreditXpert",
+      "doc_date": "2026-08-11",
+      "tier": 2,
+      "noted": true,
+      "scanned_at": "2026-09-04"
+    },
+    {
+      "doc_id": "GWJYZBZDo4w7XOzgyqtBa6IVCOQ=",
+      "company": "Infosec Boot Camps (Olympus)",
+      "doc_date": "2026-08-11",
+      "tier": 2,
+      "noted": true,
+      "scanned_at": "2026-09-04"
+    },
+    {
+      "doc_id": "R5xBlQdbfn1uSe+CWwV1Lal3bTE=",
+      "company": "MedTec Healthcare & Private Duty",
+      "doc_date": "2026-07-07",
+      "tier": 0,
+      "noted": true,
+      "scanned_at": "2026-09-04",
+      "note": "doc_date defect: KV 2026-07-07 vs filename 'CIP (Lincoln sell-side, Nov 2024)'. Portfolio-relevant short entry (Altocare target folder)."
+    },
+    {
+      "doc_id": "HgD0ubX/RpCPAl8KztY0RlIlIh0=",
+      "company": "ARC Medical Rehab (Raven)",
+      "doc_date": "2026-08-11",
+      "tier": 0,
+      "noted": true,
+      "scanned_at": "2026-09-04",
+      "note": "Portfolio-relevant short entry (Ivy Rehab category comp)."
+    },
+    {
+      "doc_id": "DcETNmA6nal6m80qIcfY81HFzwY=",
+      "company": "Maxient",
+      "doc_date": "2026-08-11",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-09-04",
+      "note_skipped": "no AI evidence, no portfolio relevance - log only"
+    },
+    {
+      "doc_id": "BRvRUc240p4rMZcYboA+/ou08lQ=",
+      "company": "Whitewater Eye Center",
+      "doc_date": "2026-08-11",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-09-04",
+      "note_skipped": "no AI evidence - log only"
+    },
+    {
+      "doc_id": "uu6a3Q14IMy1NpNrle9FLr95O1M=",
+      "company": "OrthoCor Medical (Athena)",
+      "doc_date": "2026-08-11",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-09-04",
+      "note_skipped": "no AI evidence - log only"
+    },
+    {
+      "doc_id": "CEAGPARrInEI30N3rjxuBQX1uLs=",
+      "company": "Monkey Mouths (Bluebonnet)",
+      "doc_date": "2026-08-11",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-09-04",
+      "note_skipped": "no AI evidence; pediatric therapy adjacency thin - log only, consistent with H2 Health precedent"
+    },
+    {
+      "doc_id": "UHuOFj1a27GLQtCRXsJ7fl2TBQc=",
+      "company": "DP Clinical (Destiny)",
+      "doc_date": "2026-08-11",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-09-04",
+      "note_skipped": "no AI evidence - log only"
+    },
+    {
+      "doc_id": "iaomuNI88g8Xd3FcQaYCsDbfyzM=",
+      "company": "Talisen Technologies",
+      "doc_date": "2026-08-11",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-09-04",
+      "note_skipped": "no AI evidence - log only"
+    },
+    {
+      "doc_id": "2WLFdIs0u064idbFDWWEBf+gpZ0=",
+      "company": "GSI Group Holdings (GALAXY)",
+      "doc_date": "2026-08-11",
+      "tier": 1,
+      "noted": false,
+      "scanned_at": "2026-09-04",
+      "note_skipped": "single 'Artificial Intelligence Optimization' marketing footnote - log only"
+    },
+    {
+      "doc_id": "Um8sDgFR6EyDpPmeQPr9Nz+ruic=",
+      "company": "Paradigm Reach",
+      "doc_date": "2026-08-11",
+      "tier": 1,
+      "noted": false,
+      "scanned_at": "2026-09-04",
+      "note_skipped": "one 'AI/ML capabilities (current and planned)' checklist line - log only"
     }
   ],
   "digests": [
@@ -113,6 +259,24 @@
       "draft_created": true,
       "sent_at": "2026-08-28T10:37Z",
       "send_mode": "CORRECTED per Prithvi: send required his manual approval click, same as every M365 MCP send. The settings allowlist did NOT clear the prompt. Unattended MCP send is not achievable in this org - transport moves to app-only Graph (external sender)."
+    },
+    {
+      "date": "2026-09-04T10:30Z",
+      "type": "scheduled-friday-run",
+      "window": "ingested since 2026-08-28 digest",
+      "n": 17,
+      "m": 9,
+      "lead": "Marketron (Amplify)",
+      "replies_processed": 0,
+      "recipients": [
+        "praj@waudcapital.com",
+        "drassner@waudcapital.com",
+        "rwaud2@waudcapital.com"
+      ],
+      "delivery": "outbox/cim-digest-2026-09-04.json queued (Graph secrets not yet configured as of run start - workflow will skip until they exist); interim MCP draft also created per DIGEST.md step 3",
+      "draft_created": true,
+      "sent_at": null,
+      "notes": "Ingestion lag has moved: 12 of 17 docs arrived via a DealCloud migration batch with uniform doc_date 2026-08-11 (batch stamp, not origination). KV env now 'prod'. Guards fired: MedTec doc_date defect (2026-07-07 vs Nov 2024 filename); filter_fallback false on all probes. Backfill guard not tripped (m=9)."
     }
   ],
   "backlog": {
