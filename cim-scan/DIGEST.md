@@ -171,7 +171,20 @@ in the Routines UI when convenient; nothing breaks until he does.
 Delivery steps for the Friday run:
 
 1. Make sure `prajwaud/WCP-PR-OS` is in the session's GitHub scope. If it is not, attach
-   it with `add_repo` (owner `prajwaud`, repo `WCP-PR-OS`, access `push`) and clone it.
+   it with `add_repo` (owner `prajwaud`, repo `WCP-PR-OS`, access `push`) and clone it with
+   `git clone`.
+
+   **Do NOT call `register_repo_root`, and do not call any other tool that can raise a
+   permission prompt.** This stalled the 2026-09-11 run for hours: the session attached the
+   repo, started cloning, called `register_repo_root`, and stopped dead waiting for an
+   approval click that nobody was there to give at 6:30am. `register_repo_root` exists only
+   to load a repo's CLAUDE.md, skills and plugins - it is not needed to clone, commit or
+   push, which is all this step does. The whole reason the send lives in GitHub Actions is
+   that an unattended run must never depend on a human clicking something (finding 1); a
+   delivery step that reintroduces a prompt defeats the design.
+
+   If a tool call does raise a prompt, do not wait on it. Abandon that call, finish by the
+   route that does not need it, and say in the run summary which call prompted.
 2. Write the finished email to `outbox/cim-digest-YYYY-MM-DD.json` **in WCP-PR-OS**, per
    the schema in that repo's `src/send_outbox.py`: subject, `to` = [praj, drassner,
    rwaud2]@waudcapital.com (all three are on that repo's
