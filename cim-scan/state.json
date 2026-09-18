@@ -3,7 +3,7 @@
     "purpose": "Durable state between scans and digests. scanned[] is the dedupe ledger for discovery (doc_ids already processed); digests[] is the send history. Commit and push after every run.",
     "created": "2026-08-26"
   },
-  "last_digest_at": "2026-09-04",
+  "last_digest_at": "2026-09-18",
   "scanned": [
     {
       "doc_id": "fjFpvtC3ZDytnhy8jth3EQ1ynYc=",
@@ -216,6 +216,15 @@
       "noted": false,
       "scanned_at": "2026-09-04",
       "note_skipped": "one 'AI/ML capabilities (current and planned)' checklist line - log only"
+    },
+    {
+      "doc_id": "xu3xPb7ApH9kbMIgjbgyTd1AqUs=",
+      "company": "JD Healthcare 2, LLC dba Parkway Pharmacy",
+      "doc_date": "2026-09-02",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-09-18",
+      "note_skipped": "broker book (AHC listing, $3M asking) with zero AI language; below platform/add-on scale even as Apotheco pharmacy adjacency - log only"
     }
   ],
   "digests": [
@@ -277,6 +286,23 @@
       "draft_created": true,
       "sent_at": null,
       "notes": "Ingestion lag has moved: 12 of 17 docs arrived via a DealCloud migration batch with uniform doc_date 2026-08-11 (batch stamp, not origination). KV env now 'prod'. Guards fired: MedTec doc_date defect (2026-07-07 vs Nov 2024 filename); filter_fallback false on all probes. Backfill guard not tripped (m=9)."
+    },
+    {
+      "date": "2026-09-18T10:31Z",
+      "type": "scheduled-friday-run",
+      "window": "ingested since 2026-09-04 digest (two weeks; 9/11 run stalled per test repo f589002 / WCP-PR-OS finding 53 and sent nothing)",
+      "n": 1,
+      "m": 0,
+      "lead": null,
+      "replies_processed": 1,
+      "replies_note": "Xavier Chaillot (Career Certified) replied 'Thanks Prithvi!' to Prithvi's forward of the 9/4 digest - no corrections, no procedure changes; no From-last-week block",
+      "recipients": [
+        "praj@waudcapital.com",
+        "drassner@waudcapital.com",
+        "rwaud2@waudcapital.com"
+      ],
+      "delivery": "queued to WCP-PR-OS outbox (cim-digest-2026-09-18.json, commit 4be1a0e); push-triggered Send Outbox delivers via app-only Graph; receipt checked this run",
+      "notes": "Discovery: 3 probes, filter_fallback false throughout; only 1 new doc_id since 9/4. KV connector was down entirely on the 9/11 wake (server 404) - even absent the permission stall, that run could not have scanned."
     }
   ],
   "backlog": {
