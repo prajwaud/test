@@ -3,7 +3,7 @@
     "purpose": "Durable state between scans and digests. scanned[] is the dedupe ledger for discovery (doc_ids already processed); digests[] is the send history. Commit and push after every run.",
     "created": "2026-08-26"
   },
-  "last_digest_at": "2026-09-18",
+  "last_digest_at": "2026-09-25",
   "scanned": [
     {
       "doc_id": "fjFpvtC3ZDytnhy8jth3EQ1ynYc=",
@@ -225,6 +225,41 @@
       "noted": false,
       "scanned_at": "2026-09-18",
       "note_skipped": "broker book (AHC listing, $3M asking) with zero AI language; below platform/add-on scale even as Apotheco pharmacy adjacency - log only"
+    },
+    {
+      "doc_id": "bX40602JjELc6hSLmD/Z/ePn0WY=",
+      "company": "TaskRay.io (Transcend)",
+      "doc_date": "2026-06-29",
+      "tier": 4,
+      "noted": true,
+      "scanned_at": "2026-09-25"
+    },
+    {
+      "doc_id": "XPAigW1TtGKNzRrCzex9RmRPSjQ=",
+      "company": "Diagnostic BioSystems (De Ve)",
+      "doc_date": "2026-07-01",
+      "tier": 1,
+      "noted": true,
+      "scanned_at": "2026-09-25",
+      "note": "AI as market-trend language only; Mopec-relevant short entry"
+    },
+    {
+      "doc_id": "5aFOU+Cak7xMTjgy3AL9MbyBAMI=",
+      "company": "Project Timeout (OR equipment/technician services)",
+      "doc_date": "2026-07-13",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-09-25",
+      "note_skipped": "no AI language; proprietary Scheduler platform with 15+ yrs procedure data but zero AI claims; no direct portco adjacency - log only"
+    },
+    {
+      "doc_id": "Ewvq4mdrWHLXk5CxyyMl0TgP3g4=",
+      "company": "Shared Imaging (Spartan)",
+      "doc_date": "2026-06-30",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-09-25",
+      "note_skipped": "no AI language; mobile imaging services; no direct portco adjacency - log only"
     }
   ],
   "digests": [
@@ -303,6 +338,22 @@
       ],
       "delivery": "queued to WCP-PR-OS outbox (cim-digest-2026-09-18.json, commit 4be1a0e); push-triggered Send Outbox delivers via app-only Graph; receipt checked this run",
       "notes": "Discovery: 3 probes, filter_fallback false throughout; only 1 new doc_id since 9/4. KV connector was down entirely on the 9/11 wake (server 404) - even absent the permission stall, that run could not have scanned."
+    },
+    {
+      "date": "2026-09-25T10:30Z",
+      "type": "scheduled-friday-run",
+      "window": "ingested since 2026-09-18 digest",
+      "n": 4,
+      "m": 2,
+      "lead": "TaskRay (Transcend)",
+      "replies_processed": 0,
+      "recipients": [
+        "praj@waudcapital.com",
+        "drassner@waudcapital.com",
+        "rwaud2@waudcapital.com"
+      ],
+      "delivery": "queued to WCP-PR-OS outbox (cim-digest-2026-09-25.json); push-triggered Send Outbox; receipt verified this run",
+      "notes": "filter_fallback false on all probes; two probes returned legitimate empty windows (filter_miss true) before wider probes found the cohort - the 4 new docs carry June/July doc_dates despite fresh ingestion. Observed doc_date backfills on already-scanned docs (GSI 2026-08-11 -> 2026-07-01, CreditXpert -> 2026-06-29): the migration batch stamps are being corrected in the index. TaskRay arrived via the Executive Recruiting/Paul Salay folder - a new ingestion path."
     }
   ],
   "backlog": {
