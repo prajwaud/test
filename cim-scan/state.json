@@ -3,7 +3,7 @@
     "purpose": "Durable state between scans and digests. scanned[] is the dedupe ledger for discovery (doc_ids already processed); digests[] is the send history. Commit and push after every run.",
     "created": "2026-08-26"
   },
-  "last_digest_at": "2026-10-02",
+  "last_digest_at": "2026-10-09",
   "scanned": [
     {
       "doc_id": "fjFpvtC3ZDytnhy8jth3EQ1ynYc=",
@@ -278,6 +278,40 @@
       "noted": false,
       "scanned_at": "2026-10-02",
       "note_skipped": "NOT a seller CIM - WCP's own LP coinvestment marketing deck from the Compliance archive, misclassified doc_type cim; doc_date defect (2029-12-31, the modeled exit year). Excluded from tiering; flagged as a pipeline data-quality finding."
+    },
+    {
+      "doc_id": "0agxo0e1t+XGkzDE2H5R/UNSho0=",
+      "company": "Subject Technologies (Slapshot)",
+      "doc_date": "2026-08-20",
+      "tier": 4,
+      "noted": true,
+      "scanned_at": "2026-10-09"
+    },
+    {
+      "doc_id": "+YKBcv22B2vVYKRyVKxV9YK0dVU=",
+      "company": "Blueprint Education Holdings (Bruin)",
+      "doc_date": "2026-08-04",
+      "tier": 3,
+      "noted": true,
+      "scanned_at": "2026-10-09"
+    },
+    {
+      "doc_id": "/Sw27QZoc3M+ZjIywLITRe97H/Q=",
+      "company": "Delaware Ventures Partners home care platform (Assured Love et al.)",
+      "doc_date": "2026-08-01",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-10-09",
+      "note_skipped": "no AI language; centralized ops plan (recruiting, scheduling, EVV, RCM) with no AI attached; mentioned in digest as home-care baseline data point"
+    },
+    {
+      "doc_id": "0j/ySxQLdoeWeGwRE2PSxnwStAo=",
+      "company": "Pathways Adolescent Center (Prosper)",
+      "doc_date": "2026-08-01",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-10-09",
+      "note_skipped": "no AI language; residential youth treatment - log only"
     }
   ],
   "digests": [
@@ -388,6 +422,22 @@
       ],
       "delivery": "queued to WCP-PR-OS outbox (cim-digest-2026-10-02.json); push-triggered Send Outbox; receipt verified this run",
       "notes": "Guards fired: Mopec coinvest deck misclassified as doc_type cim with doc_date 2029-12-31 (logged, excluded from tiering, flagged to Prithvi in digest); filter_fallback false on all probes."
+    },
+    {
+      "date": "2026-10-09T10:35Z",
+      "type": "scheduled-friday-run",
+      "window": "ingested since 2026-10-02 digest",
+      "n": 4,
+      "m": 2,
+      "lead": "Subject Technologies (Slapshot)",
+      "replies_processed": 0,
+      "recipients": [
+        "praj@waudcapital.com",
+        "drassner@waudcapital.com",
+        "rwaud2@waudcapital.com"
+      ],
+      "delivery": "queued to WCP-PR-OS outbox (cim-digest-2026-10-09.json); push-triggered Send Outbox; receipt verified this run",
+      "notes": "filter_fallback false on all probes. KV now returns last_modified per chunk; the four new docs carry last_modified 2026-08-11 to 2026-08-29, i.e. indexed late relative to file modification."
     }
   ],
   "backlog": {
