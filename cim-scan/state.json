@@ -438,6 +438,20 @@
       ],
       "delivery": "queued to WCP-PR-OS outbox (cim-digest-2026-10-09.json); push-triggered Send Outbox; receipt verified this run",
       "notes": "filter_fallback false on all probes. KV now returns last_modified per chunk; the four new docs carry last_modified 2026-08-11 to 2026-08-29, i.e. indexed late relative to file modification."
+    },
+    {
+      "date": "2026-10-16T10:34Z",
+      "type": "alert-kv-unavailable",
+      "window": "not scanned",
+      "n": null,
+      "m": null,
+      "lead": null,
+      "replies_processed": 0,
+      "recipients": [
+        "praj@waudcapital.com"
+      ],
+      "delivery": "alert queued to WCP-PR-OS outbox as cim-digest-2026-10-16.json (praj only) so the digest watchdog does not raise a misleading permission-stall alert",
+      "notes": "Knowledge_Vault_Documents MCP failed to connect at wake (404). No scan possible; no empty digest sent. last_digest_at deliberately NOT advanced so the next run covers 2026-10-09 onward. Second KV outage at wake (first 2026-09-11)."
     }
   ],
   "backlog": {
