@@ -1,5 +1,15 @@
 # cim-scan changelog
 
+## 2026-10-23 - Knowledge Vault renamed; CUBE cross-check added; Sonnet, fresh session
+
+Reason: the Oct 16 and Oct 23 runs found "Knowledge Vault Documents" unreachable and sent
+alerts only - no digest since Oct 9. AIVC renamed that connector "Knowledge Vault" on Oct
+15 (Sai); the new one needed a reconnect. Verified 2026-10-23 from another session: the
+renamed connector serves CIMs with doc_type "cim" and filter_fallback false, newest
+searchable Oct 15. Prithvi asked to use CUBE as well: CUBE's document table has the real
+receipt date (newest Oct 22), so SCAN.md step 1.4 now lists CIMs received but not yet
+searchable. Prithvi also moved the Routine to Sonnet with a new session each run.
+
 ## 2026-08-28 - transport moved outside Claude (outbox + app-only Graph)
 
 Reason: the inaugural send ALSO required Prithvi's manual approval click - the third

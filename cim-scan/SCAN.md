@@ -7,8 +7,10 @@ Instructions for a Claude session scanning newly ingested CIMs. Follow in order.
 
 1. Read `framework/tiers.md` (classification), `data/portco-aliases.json` (entity ids),
    `data/exposure-map.md` (portco matching), `state.json` (what has already been scanned).
-2. All retrieval is via the Knowledge Vault Documents MCP server. `answer_question` is
-   heavier - prefer `search_evidence` with explicit filters.
+2. All document retrieval is via the Knowledge Vault MCP server (named "Knowledge Vault"
+   since 2026-10-15; it was "Knowledge Vault Documents"). `answer_question` is heavier -
+   prefer `search_evidence` with explicit filters. CUBE, the firm's CRM connector, is used
+   only for the receipt cross-check in step 1.4: it lists CIMs received, not their text.
 
 ## 1. Discovery - find CIMs not yet scanned
 
@@ -24,6 +26,15 @@ Discovery therefore works by wide-window probing plus doc_id diffing:
    treated as newly ingested.
 3. The 12-month window plus doc_id diffing is what makes backfill safe: when the ingestion
    lag closes, months-old CIMs will appear as new doc_ids and get scanned then.
+4. Cross-check against CUBE (Prithvi, 2026-10-23). Ask CUBE `hybrid_query` "Which CIMs
+   did we receive in the last 14 days?" It reads the Cube CRM's document table and gives
+   each CIM's deal name, company, banker and CIMAddedDate - the real receipt date, which the
+   Vault lacks. For each CUBE row with no matching Vault document (match on company name or
+   the project codename in the file name), list it in the run summary and in the digest's
+   pre-flight as "received, not yet searchable in the Vault". Never classify or write a note
+   from a CUBE row: it carries no document text. Measured 2026-10-23: CUBE showed CIMs
+   received through Oct 22 while the Vault's newest searchable CIM was Oct 15. If CUBE is
+   unavailable, say so and carry on; the Vault scan does not depend on it.
 
 ### Non-negotiable tool guards (verified defects, spec section 5)
 
