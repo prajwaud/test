@@ -452,6 +452,20 @@
       ],
       "delivery": "alert queued to WCP-PR-OS outbox as cim-digest-2026-10-16.json (praj only) so the digest watchdog does not raise a misleading permission-stall alert",
       "notes": "Knowledge_Vault_Documents MCP failed to connect at wake (404). No scan possible; no empty digest sent. last_digest_at deliberately NOT advanced so the next run covers 2026-10-09 onward. Second KV outage at wake (first 2026-09-11)."
+    },
+    {
+      "date": "2026-10-23T10:35Z",
+      "type": "alert-kv-unavailable",
+      "window": "not scanned",
+      "n": null,
+      "m": null,
+      "lead": null,
+      "replies_processed": 0,
+      "recipients": [
+        "praj@waudcapital.com"
+      ],
+      "delivery": "alert queued to WCP-PR-OS outbox as cim-digest-2026-10-23.json (praj only)",
+      "notes": "Knowledge_Vault_Documents MCP failed to connect at wake (404) for the second consecutive Friday. 2026-10-16 alert still unread at run time. last_digest_at left at 2026-10-09; next successful run covers 2+ weeks and may trip the >10-note backfill guard."
     }
   ],
   "backlog": {
