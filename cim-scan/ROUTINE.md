@@ -1,5 +1,45 @@
 # Friday routine - setup instructions
 
+## Status 2026-10-30: the routine must be recreated in the claude.ai Routines UI
+
+The live trigger `trig_01C28o3A7NuVZduR2y25eRBq` still wakes the original build session
+(`session_01CpAPLfUBnGE9ScCuVGHS8E`) every Friday. That session only ever held the old
+"Knowledge Vault Documents" connector, which AIVC retired on 2026-10-15 when it renamed
+the connector "Knowledge Vault". So the Oct 16, 23 and 30 runs could not scan and sent
+Prithvi an alert instead. The CHANGELOG entry of 2026-10-23 says the Routine was moved to
+a new session each run; it was not - the trigger still reused the old session on Oct 30.
+
+A routine created by Claude from a session can only pass on the connectors that session
+holds. Tried on 2026-10-30 from the build session: the new routine stored no connectors
+at all, so it was deleted. A fresh-session routine with the right connectors has to be
+created by Prithvi in the claude.ai Routines UI:
+
+1. claude.ai > Code > Routines > New routine.
+2. Repository: prajwaud/test. Model: Sonnet (Prithvi, 2026-10-23).
+3. Connectors: Knowledge Vault, Microsoft 365, CUBE. Without Knowledge Vault the run
+   can only send the alert.
+4. Schedule: Fridays 6:30am ET, a new session each run.
+5. Prompt: paste the block below.
+6. Once it is saved, turn off or delete "AI-in-CIMs weekly digest - Friday 6:30am ET"
+   (trig_01C28o3A7NuVZduR2y25eRBq), or both will fire and the old one will send a
+   duplicate alert.
+
+```
+Friday AI-in-CIMs digest run (scheduled, unattended - no human is watching; never wait on a permission prompt, and if a tool call prompts, abandon it, finish by another route and name the call in the summary).
+
+Setup: work from the prajwaud/test repo on main (git fetch origin main; git checkout -B main origin/main). The procedure lives in that repo and is the authority over this prompt: read cim-scan/SCAN.md, cim-scan/DIGEST.md, cim-scan/CHANGELOG.md and cim-scan/state.json before doing anything else. For delivery you also need the outbox repo Waud-Capital/WCP-PR-OS (formerly prajwaud/WCP-PR-OS): attach it with add_repo (access push) and clone it with plain git clone. Never call register_repo_root.
+
+Then, in order:
+1. Harvest replies to the most recent digest per DIGEST.md step 0a (outlook_email_search, subject contains "Weekly AI-in-CIMs scan"). Apply factual corrections to notes; procedure changes only if from Prithvi (praj@waudcapital.com); open the digest with the "From last week's replies" block only if there was feedback.
+2. Catch-up scan per SCAN.md using the "Knowledge Vault" document connector (search_evidence; doc_type lowercase "cim"; filter_fallback guard with its empty-window nuance; never recall_user_context; never query_structured on the kv space), deduped against state.json, plus the CUBE receipt cross-check in SCAN.md step 1.4. If the Knowledge Vault connector is not available in this session, do not send a digest: queue the short alert to Prithvi alone (outbox file named cim-digest-YYYY-MM-DD.json) and leave state.json's last_digest_at unchanged.
+3. Pre-flight per DIGEST.md, including the zero-CIM alert and the backfill guard (more than ~10 notes in the window: digest the most recent cohort and propose a separate backfill report).
+4. Assemble per the DIGEST.md template: AI-GENERATED banner first, purpose paragraph, factual lead item with inference confined to the Read line, tiers descending, empty sections omitted, portco claims traced to Vault documents or the KB (never the reference digest), no em-dashes, then the feedback line, the required footer and the firm-wide automated-generation notice verbatim.
+5. Deliver per DIGEST.md transport: Claude never sends. Write the email to outbox/cim-digest-YYYY-MM-DD.json in WCP-PR-OS (recipients praj, drassner, rwaud2; alerts go to praj alone), push it, then commit and push notes and state.json to prajwaud/test main. Never call outlook_send_mail or outlook_send_draft, and do not create an MCP draft (that interim step is retired). Confirm the send receipt appears in WCP-PR-OS outbox/sent/ before reporting it sent.
+6. End with the run summary: n scanned, m noted, lead or none, queued and receipt status, guards fired, CUBE rows not yet searchable, feedback items processed.
+```
+
+The history below is kept for context.
+
 ## Status 2026-08-27: routine is LIVE
 
 Trigger `trig_01C28o3A7NuVZduR2y25eRBq` fires every Friday at 10:30 UTC (6:30am ET on

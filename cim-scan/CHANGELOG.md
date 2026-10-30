@@ -1,5 +1,15 @@
 # cim-scan changelog
 
+## 2026-10-30 - Routine still on the old session; recreate it in the UI
+
+Reason: the Oct 30 run found the trigger still bound to the original build session
+(persist_session true), so the 2026-10-23 "new session each run" change had not taken
+and the renamed Knowledge Vault connector was never available. At Prithvi's request
+Claude tried to create a fresh-session routine from that session; it could pass on no
+connectors, so it was deleted rather than left to fail. ROUTINE.md now has the UI steps
+and a paste-ready prompt (standalone, retires the interim MCP-draft step, names the
+WCP-PR-OS move to the Waud-Capital org).
+
 ## 2026-10-23 - Knowledge Vault renamed; CUBE cross-check added; Sonnet, fresh session
 
 Reason: the Oct 16 and Oct 23 runs found "Knowledge Vault Documents" unreachable and sent
