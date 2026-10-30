@@ -466,6 +466,26 @@
       ],
       "delivery": "alert queued to WCP-PR-OS outbox as cim-digest-2026-10-23.json (praj only)",
       "notes": "Knowledge_Vault_Documents MCP failed to connect at wake (404) for the second consecutive Friday. 2026-10-16 alert still unread at run time. last_digest_at left at 2026-10-09; next successful run covers 2+ weeks and may trip the >10-note backfill guard."
+    },
+    {
+      "date": "2026-10-30T10:37Z",
+      "type": "alert-kv-unavailable",
+      "window": "not scanned",
+      "n": null,
+      "m": null,
+      "lead": null,
+      "replies_processed": 0,
+      "recipients": [
+        "praj@waudcapital.com"
+      ],
+      "delivery": "alert queued to WCP-PR-OS outbox as cim-digest-2026-10-30.json (praj only)",
+      "cube_crosscheck": {
+        "received_since_2026-10-09": 22,
+        "window_1": "13 CIMs 2026-10-09..10-16",
+        "window_2": "9 CIMs 2026-10-19..10-29",
+        "vault_searchable": "unknown - Vault connector not attached to this session"
+      },
+      "notes": "Third consecutive Friday without the Vault. Renamed 'Knowledge Vault' connector (SCAN.md 2026-10-23) is not attached to this persistent session; list_triggers shows trig_01C28o3A7NuVZduR2y25eRBq still bound to session_01CpAPLfUBnGE9ScCuVGHS8E (persist_session true), contradicting CHANGELOG 2026-10-23 'new session each run'. Needs the Routine switched to fresh-session in the Routines UI. last_digest_at stays 2026-10-09; 22-CIM backlog will trip the backfill guard."
     }
   ],
   "backlog": {
