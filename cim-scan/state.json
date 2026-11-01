@@ -3,7 +3,7 @@
     "purpose": "Durable state between scans and digests. scanned[] is the dedupe ledger for discovery (doc_ids already processed); digests[] is the send history. Commit and push after every run.",
     "created": "2026-08-26"
   },
-  "last_digest_at": "2026-10-09",
+  "last_digest_at": "2026-11-01",
   "scanned": [
     {
       "doc_id": "fjFpvtC3ZDytnhy8jth3EQ1ynYc=",
@@ -312,6 +312,302 @@
       "noted": false,
       "scanned_at": "2026-10-09",
       "note_skipped": "no AI language; residential youth treatment - log only"
+    },
+    {
+      "doc_id": "ANmSofihRaW/i9DYdJmNmEX9GtY=",
+      "company": "Rapid Care Transcriptions",
+      "doc_date": "2026-10-01",
+      "tier": 4,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "SOIjjfg/0HV2ZGCkIQqlvIiy6Wo=",
+      "company": "ComplianceLine (Ethico)",
+      "doc_date": "2026-10-30",
+      "tier": 4,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "9TNnERKSyoG6+zSYk/+taop/NRM=",
+      "company": "AdMed",
+      "doc_date": "2026-10-01",
+      "tier": 4,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "LTkAl7YVcm6nyDpePrQAk9I1fbI=",
+      "company": "Madecraft",
+      "doc_date": "2026-10-15",
+      "tier": 4,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "zESCIu7Fgs9HLbLdDQeSkPrZwmw=",
+      "company": "Springpod",
+      "doc_date": "2026-09-01",
+      "tier": 4,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "iMc19K3steeb6FeCUdSJ5wq7vbY=",
+      "company": "Blue Ridge Life Sciences",
+      "doc_date": "2026-10-01",
+      "tier": 4,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "mGmPRFxmdrBwKW3Lkp218JWRlm8=",
+      "company": "TimeLooper",
+      "doc_date": "2026-10-01",
+      "tier": 4,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "0bcpiFxUNSinEt99ciwTUw6lHFs=",
+      "company": "Teleion",
+      "doc_date": "2026-10-20",
+      "tier": 4,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "ovnnZgR5tsxqYczL6a4tTALFHkk=",
+      "company": "Leap Event Technology",
+      "doc_date": "2026-10-19",
+      "tier": 4,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "ob48jncGelR3llFsbFRjM8sVKhw=",
+      "company": "Ocular Science (OSRX)",
+      "doc_date": "2026-10-21",
+      "tier": 3,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "R9he6lDJZ3+U7DkrkHXie2X5f5Q=",
+      "company": "Friday Plans",
+      "doc_date": "2026-10-31",
+      "tier": 3,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "7rWT6kORDpW+kM1R7bqhHLvfkiQ=",
+      "company": "TriStar Event Media",
+      "doc_date": "2026-10-01",
+      "tier": 3,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "nO03f26WpZyfevgSm6PzuSqqY/Q=",
+      "company": "SCIRIS",
+      "doc_date": "2026-10-01",
+      "tier": 3,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "xDySiyytnBnl5ACXz5KDys7wN7Q=",
+      "company": "MetrumRG",
+      "doc_date": "2026-10-29",
+      "tier": 3,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "VEs9NExYVLOCECpMqpQV7FtwThE=",
+      "company": "BeMo Academic Consulting",
+      "doc_date": "2026-10-14",
+      "tier": 3,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "fP1mapfCTEGh1bOrh8acmJ/lOgs=",
+      "company": "Instinct Science",
+      "doc_date": "2026-10-17",
+      "tier": 2,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "jYZPYLMailJ7wyeK2WIXpboM+Ck=",
+      "company": "Savance",
+      "doc_date": "2026-10-28",
+      "tier": 2,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "NBjBKlye88V0H2Ta2piVlQioi1A=",
+      "company": "Kno2",
+      "doc_date": "2026-10-01",
+      "tier": 2,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "SzbZ92u4oH/tE0JGdn2Z2qKyrtg=",
+      "company": "Augusta Hitech",
+      "doc_date": "2026-10-27",
+      "tier": 2,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "WWjWgH7rya6QwHaJ7bVCGSbBtck=",
+      "company": "Meazure Learning",
+      "doc_date": "2026-10-22",
+      "tier": 2,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "UeOG4d3VnskpQkkkKZvyMjo4Fos=",
+      "company": "CrossLink Professional Tax Solutions",
+      "doc_date": "2026-10-13",
+      "tier": 2,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "p7burKraxrKfCVQyGSMnyQS+Cg8=",
+      "company": "CEO Coaching International",
+      "doc_date": "2026-10-08",
+      "tier": 2,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "li5tvdugfhNWPQNYR1Dx7hcpE88=",
+      "company": "social.plus",
+      "doc_date": "2026-06-01",
+      "tier": 2,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "Kth3MCThLy4jlpwx7kFtBrnR7Uo=",
+      "company": "Legacy Brain & Spine",
+      "doc_date": "2026-10-21",
+      "tier": 2,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "S0bIihg93hR0V99YGNdpu+ovRL8=",
+      "company": "ACES Quality Management",
+      "doc_date": "2026-10-26",
+      "tier": 2,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "ycrmdeDbaZMi9yYTINt4jnalVW8=",
+      "company": "HomeCare Advantage",
+      "doc_date": "2026-10-08",
+      "tier": 1,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "+UWNlGDe83rIv+YGh0n8UdHBwKM=",
+      "company": "First Community Health Services",
+      "doc_date": "2026-10-01",
+      "tier": 0,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "/l/51Wn9DUpV6tX5QJUo84KO5Wc=",
+      "company": "Nectar Aesthetics",
+      "doc_date": "2026-10-01",
+      "tier": 0,
+      "noted": true,
+      "scanned_at": "2026-11-01"
+    },
+    {
+      "doc_id": "baT0pGSB5v3EeY9uXCzufpP45nw=",
+      "company": "Kolmac Integrated Behavioral Health (Project Caps)",
+      "doc_date": "2026-10-19",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-11-01",
+      "note_skipped": "no AI; no portco match"
+    },
+    {
+      "doc_id": "CGtlzLWp6UIZbms/kcCxL15Ispg=",
+      "company": "Integrity Merchant Solutions (Project Ithaca)",
+      "doc_date": "2026-10-19",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-11-01",
+      "note_skipped": "no AI; payments ISO"
+    },
+    {
+      "doc_id": "3pAB9Nv1JXhvTMoyZqsnbzfaLnI=",
+      "company": "Minnesota Women's Care (Project PRINCE)",
+      "doc_date": "2026-10-28",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-11-01",
+      "note_skipped": "no AI; no portco match"
+    },
+    {
+      "doc_id": "Zp4L6D3FtdAcH1dZK4nlxP+Hkpc=",
+      "company": "Best ABA",
+      "doc_date": "2026-10-28",
+      "tier": 0,
+      "noted": false,
+      "scanned_at": "2026-11-01",
+      "note_skipped": "boilerplate only; micro practice"
+    },
+    {
+      "doc_id": "HnquU3i5Pw3s3m5jMyL6qOjuuNk=",
+      "company": "allwhere (Project Amigo)",
+      "doc_date": "2026-10-07",
+      "tier": 2,
+      "noted": false,
+      "scanned_at": "2026-11-01",
+      "note_skipped": "AI capability only; no portco exposure, so no note"
+    },
+    {
+      "doc_id": "YUs2+RsULjRyuHMnG/Rp8aTfXnk=",
+      "company": "Instinct Science (Bird Dog, .pptx copy)",
+      "doc_date": "2026-10-01",
+      "tier": 2,
+      "noted": false,
+      "scanned_at": "2026-11-01",
+      "note_skipped": "duplicate of fP1mapfCTEGh1bOrh8acmJ/lOgs="
+    },
+    {
+      "doc_id": "PGf+iwPqtP90NiFApuGLqoKw58Y=",
+      "company": "Market Access Consulting CIM Extracts (WCP compilation)",
+      "doc_date": "2026-10-07",
+      "tier": null,
+      "noted": false,
+      "scanned_at": "2026-11-01",
+      "note_skipped": "WCP-internal compilation of old CIM extracts, not a seller CIM; excluded from counts"
+    },
+    {
+      "doc_id": "kJP1fASxbaKsfNbeTz74y5/8WGk=",
+      "company": "PromptCare executive summary",
+      "doc_date": "2026-10-01",
+      "tier": null,
+      "noted": false,
+      "scanned_at": "2026-11-01",
+      "note_skipped": "WCP portco's own material, not a target CIM; excluded from scan and digest"
     }
   ],
   "digests": [
@@ -486,6 +782,39 @@
         "vault_searchable": "unknown - Vault connector not attached to this session"
       },
       "notes": "Third consecutive Friday without the Vault. Renamed 'Knowledge Vault' connector (SCAN.md 2026-10-23) is not attached to this persistent session; list_triggers shows trig_01C28o3A7NuVZduR2y25eRBq still bound to session_01CpAPLfUBnGE9ScCuVGHS8E (persist_session true), contradicting CHANGELOG 2026-10-23 'new session each run'. Needs the Routine switched to fresh-session in the Routines UI. last_digest_at stays 2026-10-09; 22-CIM backlog will trip the backfill guard."
+    },
+    {
+      "date": "2026-11-01T17:00Z",
+      "type": "catch-up digest",
+      "window": "since 2026-10-09",
+      "n": 33,
+      "m": 28,
+      "lead": "Rapid Care Transcriptions (Project Meridian)",
+      "replies_processed": 0,
+      "recipients": [
+        "praj@waudcapital.com",
+        "drassner@waudcapital.com",
+        "rwaud2@waudcapital.com"
+      ],
+      "delivery": "queued to Waud-Capital/WCP-PR-OS outbox as cim-digest-2026-11-01.json",
+      "run_from": "session_01Cn4RthDcsd9EFL7EdQd1mG (Prithvi, 2026-11-01: run it from here going forward)",
+      "cube_not_yet_searchable": [
+        "Swish",
+        "Miami Home Health",
+        "Revolution",
+        "Project 600",
+        "Empire",
+        "Redwood",
+        "Beacon",
+        "TruEdge",
+        "Knight",
+        "Catalyst",
+        "Summit",
+        "TXPD2S",
+        "Cascade",
+        "Clinical Maestro"
+      ],
+      "flags_for_prithvi": "Tier 4 on the naming-only ruling: Blue Ridge, TimeLooper, Springpod, Leap; Teleion on AI-attributed revenue. Codenames reused: Project Meridian (Rapid Care, Leap), Project Nova (AdMed, Nectar)."
     }
   ],
   "backlog": {

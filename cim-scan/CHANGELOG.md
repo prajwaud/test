@@ -1,5 +1,20 @@
 # cim-scan changelog
 
+## 2026-11-01 - catch-up digest; the Friday run moves to Prithvi's usage-report session
+
+Reason: no digest since Oct 9. The Friday trigger (trig_01C28o3A7NuVZduR2y25eRBq) was bound to
+the August build session, which never had the renamed "Knowledge Vault" connector, and
+Routines created from a session cannot carry connectors. Prithvi, 2026-11-01: "run a catch up
+digest and now run it from here going forward - so we don't have to worry about routines".
+Done from session_01Cn4RthDcsd9EFL7EdQd1mG, which holds Knowledge Vault, CUBE and Microsoft 365:
+33 CIMs scanned across six parallel scan agents, 28 notes, digest queued to WCP-PR-OS. The old
+trigger is disabled; trig_011p6tigvjPfpyW3CGFiu5wU fires into that session Fridays 6:24am ET.
+Discovery used doc_date_gte 2026-10-01 rather than 12 months back, to keep the catch-up to the
+missed window; the older backlog stays in state.json backlog. Flags for Prithvi: four Tier 4
+calls rest on the naming-only ruling (Blue Ridge, TimeLooper, Springpod, Leap) and Teleion is
+Tier 4 on AI-attributed revenue; codenames Project Meridian and Project Nova are each used by two
+unrelated sellers in this window.
+
 ## 2026-10-30 - Routine still on the old session; recreate it in the UI
 
 Reason: the Oct 30 run found the trigger still bound to the original build session
