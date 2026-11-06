@@ -3,7 +3,7 @@
     "purpose": "Durable state between scans and digests. scanned[] is the dedupe ledger for discovery (doc_ids already processed); digests[] is the send history. Commit and push after every run.",
     "created": "2026-08-26"
   },
-  "last_digest_at": "2026-11-01",
+  "last_digest_at": "2026-11-06",
   "scanned": [
     {
       "doc_id": "fjFpvtC3ZDytnhy8jth3EQ1ynYc=",
@@ -608,6 +608,47 @@
       "noted": false,
       "scanned_at": "2026-11-01",
       "note_skipped": "WCP portco's own material, not a target CIM; excluded from scan and digest"
+    },
+    {
+      "doc_id": "kuJnZyU30ka7Qe0zr64jNu88qdo=",
+      "company": "Encamp",
+      "doc_date": "2026-10-31",
+      "tier": 3,
+      "noted": true,
+      "scanned_at": "2026-11-06"
+    },
+    {
+      "doc_id": "nkDuz8gWFx1MxibeFlJEdAOQAlU=",
+      "company": "ERP International",
+      "doc_date": "2026-10-20",
+      "tier": 2,
+      "noted": true,
+      "scanned_at": "2026-11-06"
+    },
+    {
+      "doc_id": "Zuk2GkT3PJvIO4ecgPyNDb9gIfU=",
+      "company": "Exit Planning Institute",
+      "doc_date": "2026-11-02",
+      "tier": 1,
+      "noted": true,
+      "scanned_at": "2026-11-06"
+    },
+    {
+      "doc_id": "oPrdVmg0N9EX5ttJwwDgSOih5A0=",
+      "company": "Seaport Medspa",
+      "doc_date": "2026-11-03",
+      "tier": 0,
+      "noted": true,
+      "scanned_at": "2026-11-06"
+    },
+    {
+      "doc_id": "XVFvjv3DaiEW3sWNTeVJDdqamSM=",
+      "company": "Concierge Home Care CIM executive summary",
+      "doc_date": "2026-10-12",
+      "tier": null,
+      "noted": false,
+      "scanned_at": "2026-11-06",
+      "note_skipped": "WCP portco's own material, not a target CIM; excluded from scan and digest"
     }
   ],
   "digests": [
@@ -815,6 +856,38 @@
         "Clinical Maestro"
       ],
       "flags_for_prithvi": "Tier 4 on the naming-only ruling: Blue Ridge, TimeLooper, Springpod, Leap; Teleion on AI-attributed revenue. Codenames reused: Project Meridian (Rapid Care, Leap), Project Nova (AdMed, Nectar)."
+    },
+    {
+      "date": "2026-11-06T17:00Z",
+      "type": "weekly digest",
+      "window": "since 2026-11-01",
+      "n": 4,
+      "m": 4,
+      "lead": "Encamp (Project Eagle)",
+      "replies_processed": 0,
+      "recipients": [
+        "praj@waudcapital.com",
+        "drassner@waudcapital.com",
+        "rwaud2@waudcapital.com"
+      ],
+      "delivery": "queued to Waud-Capital/WCP-PR-OS outbox as cim-digest-2026-11-06.json",
+      "run_from": "session_01Cn4RthDcsd9EFL7EdQd1mG (Friday trigger trig_011p6tigvjPfpyW3CGFiu5wU)",
+      "cube_not_yet_searchable": [
+        "Swish",
+        "Miami Home Health",
+        "Revolution",
+        "Empire",
+        "Redwood",
+        "Beacon",
+        "Knight",
+        "Catalyst",
+        "Summit",
+        "TXPD2S",
+        "Cascade",
+        "Clinical Maestro",
+        "TruEdge (the CIM itself)"
+      ],
+      "flags_for_prithvi": "Encamp Tier 3 vs 4 under the naming-only ruling; open from last week: naming-only Tier 4s (Blue Ridge, TimeLooper, Springpod, Leap) and Teleion. Codenames reused: Eagle (Encamp, IHRDC), Meridian, Nova."
     }
   ],
   "backlog": {
